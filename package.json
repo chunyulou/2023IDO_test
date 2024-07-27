@@ -1,0 +1,13 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
+  }
+}
