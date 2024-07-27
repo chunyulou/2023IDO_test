@@ -1,84 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('./database'); // 引入数据库
-const app = express();
-const port = 3001;
+// 导入 sql.js
+const initSqlJs = require('sql.js');
+const fs = require('fs');
 
-app.use(cors());
-app.use(express.json());
+// 初始化 SQL.js
+initSqlJs().then(SQL => {
+    const db = new SQL.Database();
 
-// 获取初始点赞数据
-app.get('/initial-data', (req, res) => {
-    const userId = req.query.userId;
+    // 创建表
+    db.run("CREATE TABLE IF NOT EXISTS likes (imageId TEXT PRIMARY KEY, count INTEGER)");
+    db.run("CREATE TABLE IF NOT EXISTS user_likes (userId TEXT, imageId TEXT, liked BOOLEAN, PRIMARY KEY (userId, imageId))");
 
-    db.all("SELECT imageId, count FROM likes", [], (err, likeRows) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
+    // 示例：插入数据
+    db.run("INSERT INTO likes (imageId, count) VALUES (?, ?)", ['image1', 10]);
 
-        db.all("SELECT imageId, liked FROM user_likes WHERE userId = ?", [userId], (err, userLikeRows) => {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-
-            const likeCounts = {};
-            likeRows.forEach(row => {
-                likeCounts[row.imageId] = row.count;
-            });
-
-            const userLikes = {};
-            userLikeRows.forEach(row => {
-                userLikes[row.imageId] = row.liked;
-            });
-
-            res.json({ likeCounts, userLikes });
-        });
-    });
-});
-
-// 更新点赞计数
-app.post('/like', (req, res) => {
-    const { userId, imageId, liked } = req.body;
-
-    db.get("SELECT count FROM likes WHERE imageId = ?", [imageId], (err, row) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-
-        if (row) {
-            const newCount = liked ? row.count + 1 : row.count - 1;
-            db.run("UPDATE likes SET count = ? WHERE imageId = ?", [newCount, imageId], function (err) {
-                if (err) {
-                    return res.status(500).json({ error: err.message });
-                }
-
-                db.run("INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES (?, ?, ?)", [userId, imageId, liked], function (err) {
-                    if (err) {
-                        return res.status(500).json({ error: err.message });
-                    }
-
-                    res.json({ likeCount: newCount });
-                });
-            });
-        } else {
-            const initialCount = liked ? 1 : 0;
-            db.run("INSERT INTO likes (imageId, count) VALUES (?, ?)", [imageId, initialCount], function (err) {
-                if (err) {
-                    return res.status(500).json({ error: err.message });
-                }
-
-                db.run("INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES (?, ?, ?)", [userId, imageId, liked], function (err) {
-                    if (err) {
-                        return res.status(500).json({ error: err.message });
-                    }
-
-                    res.json({ likeCount: initialCount });
-                });
-            });
-        }
-    });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+    // 查询数据
+    const result = db.exec("SELECT * FROM likes");
+    console.log(result);
+}).catch(err => {
+    console.error('Error initializing SQL.js:', err);
 });
