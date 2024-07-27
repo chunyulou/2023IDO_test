@@ -1,21 +1,29 @@
-// 导入 sql.js
 const initSqlJs = require('sql.js');
-const fs = require('fs');
+let db;
 
-// 初始化 SQL.js
+// 初始化数据库并创建表
 initSqlJs().then(SQL => {
-    const db = new SQL.Database();
+    db = new SQL.Database();
+    db.run("CREATE TABLE likes (imageId TEXT PRIMARY KEY, count INTEGER)");
+    db.run("CREATE TABLE user_likes (userId TEXT, imageId TEXT, liked BOOLEAN, PRIMARY KEY (userId, imageId))");
 
-    // 创建表
-    db.run("CREATE TABLE IF NOT EXISTS likes (imageId TEXT PRIMARY KEY, count INTEGER)");
-    db.run("CREATE TABLE IF NOT EXISTS user_likes (userId TEXT, imageId TEXT, liked BOOLEAN, PRIMARY KEY (userId, imageId))");
+    // 这里添加你的其他服务器配置和路由
+    const express = require('express');
+    const app = express();
+    const cors = require('cors');
 
-    // 示例：插入数据
-    db.run("INSERT INTO likes (imageId, count) VALUES (?, ?)", ['image1', 10]);
+    app.use(cors());
+    app.use(express.json());
 
-    // 查询数据
-    const result = db.exec("SELECT * FROM likes");
-    console.log(result);
-}).catch(err => {
-    console.error('Error initializing SQL.js:', err);
+    // 例如，定义一个获取 likes 的端点
+    app.get('/likes', (req, res) => {
+        const result = db.exec("SELECT * FROM likes");
+        res.json(result);
+    });
+
+    // 启动服务器
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
 });
