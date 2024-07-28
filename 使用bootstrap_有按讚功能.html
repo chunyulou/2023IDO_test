@@ -128,14 +128,17 @@
                     videoInModal.src = `public/video/${pos.src}`;
                     videoInModal.controls = true;
                     videoInModal.classList.add('video-fluid');
-                    videoInModal.addEventListener('loadedmetadata', function () {
+
+                    // 监听用户交互事件
+                    imgElement.addEventListener('click', function () {
                         videoInModal.play();
                     });
-                    modalBody.appendChild(videoInModal);
 
                     modal.addEventListener('hidden.bs.modal', function () {
                         videoInModal.pause();
                     });
+
+                    modalBody.appendChild(videoInModal);
                 }
 
                 modalContent.append(modalHeader, modalBody);
@@ -150,8 +153,9 @@
                 }
             });
         });
-
     </script>
+
+
 
     <!--cookie儲存按讚狀態-->
     <script>
@@ -186,13 +190,12 @@
     </script>
 
     <!--動態生成右框輪播便利貼、愛心點擊計數功能-->
-    <!-- 动态生成右框轮播便利贴、爱心点击计数功能 -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const carouselInner = document.querySelector('.carousel-inner');
 
             // 获取初始点赞数据
-            fetch('http://localhost:3001/initial-data?userId=someUserId') // 确保传递 userId
+            fetch('https://two023ido-test.onrender.com/likes?userId=someUserId') // 确保传递 userId
                 .then(response => response.json())
                 .then(data => {
                     const likeCounts = data.likeCounts || {}; // 从服务器返回的 likeCounts
@@ -214,11 +217,11 @@
                         const likeCount = likeCounts[i] || 0; // 默认值为0
                         const liked = userLikes[i] || false; // 默认值为false
                         likeOverlay.innerHTML = `
-                        <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                            <img src="${liked ? 'public/images/red-heart.png' : 'public/images/empty-heart.png'}" alt="Like" width="30" height="30">
-                        </button>
-                        <div class="like-counter">${likeCount}</div>
-                    `;
+                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
+                        <img src="${liked ? 'public/images/red-heart.png' : 'public/images/empty-heart.png'}" alt="Like" width="30" height="30">
+                    </button>
+                    <div class="like-counter">${likeCount}</div>
+                `;
 
                         imageContainer.appendChild(img);
                         imageContainer.appendChild(likeOverlay);
@@ -243,7 +246,7 @@
                                 ? 'public/images/red-heart.png'
                                 : 'public/images/empty-heart.png';
 
-                            fetch('http://localhost:3001/like', {
+                            fetch('https://two023ido-test.onrender.com/like', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -284,7 +287,9 @@
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
+
     </script>
+
 
 
 
