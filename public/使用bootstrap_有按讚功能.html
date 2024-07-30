@@ -7,7 +7,7 @@
     <title>我願意便利貼</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body class="container ">
@@ -16,7 +16,7 @@
             <div class="btnImageAll position-absolute" style="width: 100%;height: 100%;">
             </div>
             <!-- 圖片或其他內容 -->
-            <img id="contentImage" src="images/background.png" alt="Main Image" class="main-image w-100 h-100">
+            <img id="contentImage" src="/images/background.png" alt="Main Image" class="main-image w-100 h-100">
         </div>
         <div class="col-lg-4 col-md-6 col-12 m-0 p-0  IDo-Right">
             <!-- 右框內容，例如 carousel -->
@@ -46,8 +46,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             const btnImageAll = document.querySelector('.btnImageAll');
 
-            const imgSrcHeart = 'images/heart.png';
-            const imgSrcPlay = 'images/play.png';
+            const imgSrcHeart = '/images/heart.png';
+            const imgSrcPlay = '/images/play.png';
             const positions = [
                 { top: '59%', left: '40%', type: 'image', src: 'Frame 1.png' },
                 { top: '55%', left: '30%', type: 'video', src: 'video1.mp4' },
@@ -120,7 +120,7 @@
 
                 if (pos.type === 'image') {
                     const imgInModal = document.createElement('img');
-                    imgInModal.src = `images/${pos.src}`;
+                    imgInModal.src = `/images/${pos.src}`;
                     imgInModal.classList.add('img-fluid');
                     modalBody.appendChild(imgInModal);
                 } else if (pos.type === 'video') {
@@ -208,7 +208,7 @@
                         if (i === 1) imageContainer.classList.add('active');
 
                         const img = document.createElement('img');
-                        img.src = `images/image${i}.png`;
+                        img.src = `/images/image${i}.png`;
                         img.className = 'd-block w-100 object-fit-cover';
                         img.alt = `Slide ${i}`;
 
@@ -218,7 +218,7 @@
                         const liked = userLikes[i] || false; // 默认值为false
                         likeOverlay.innerHTML = `
                     <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? 'images/red-heart.png' : 'images/empty-heart.png'}" alt="Like" width="30" height="30">
+                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
                     </button>
                     <div class="like-counter">${likeCount}</div>
                 `;
@@ -243,8 +243,8 @@
 
                             // Update button icon and like counter
                             const newIcon = newLikeStatus
-                                ? 'images/red-heart.png'
-                                : 'images/empty-heart.png';
+                                ? '/images/red-heart.png'
+                                : '/images/empty-heart.png';
 
                             fetch('https://two023ido-test.onrender.com/like', {
                                 method: 'POST',

@@ -15,8 +15,6 @@ app.use(express.static(path.join(__dirname, 'public'), {
     }
 }));
 
-let db;
-
 // 初始化数据库
 initSqlJs().then(SQL => {
     if (!fs.existsSync('likes.db')) {
@@ -31,6 +29,7 @@ initSqlJs().then(SQL => {
     }
 });
 
+// 处理 /likes 路由
 app.get('/likes', (req, res) => {
     const userId = req.query.userId;
     const likesResult = db.exec("SELECT * FROM likes");
@@ -49,6 +48,7 @@ app.get('/likes', (req, res) => {
     res.json({ likeCounts, userLikes });
 });
 
+// 处理 /like 路由
 app.post('/like', (req, res) => {
     const { userId, imageId, liked } = req.body;
 
@@ -71,10 +71,12 @@ app.post('/like', (req, res) => {
     res.json({ likeCount });
 });
 
+// 处理所有其他请求，返回index.html
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
+// 启动服务器
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
