@@ -7,13 +7,18 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // 处理public目录下的静态文件
+app.use(express.static(path.join(__dirname, 'public'), {
+    setHeaders: (res, filePath) => {
+        if (path.extname(filePath) === '.css') {
+            res.setHeader('Content-Type', 'text/css');
+        }
+    }
+}));
 
 let db;
 
 // 初始化数据库
 initSqlJs().then(SQL => {
-    // 如果不存在数据库文件，则创建一个新的数据库文件
     if (!fs.existsSync('likes.db')) {
         db = new SQL.Database();
         db.run("CREATE TABLE likes (imageId TEXT PRIMARY KEY, count INTEGER)");
@@ -26,7 +31,6 @@ initSqlJs().then(SQL => {
     }
 });
 
-// 处理 /likes 路由
 app.get('/likes', (req, res) => {
     const userId = req.query.userId;
     const likesResult = db.exec("SELECT * FROM likes");
@@ -45,7 +49,6 @@ app.get('/likes', (req, res) => {
     res.json({ likeCounts, userLikes });
 });
 
-// 处理 /like 路由
 app.post('/like', (req, res) => {
     const { userId, imageId, liked } = req.body;
 
@@ -68,12 +71,10 @@ app.post('/like', (req, res) => {
     res.json({ likeCount });
 });
 
-// 处理所有其他请求，返回index.html
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-// 启动服务器
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
