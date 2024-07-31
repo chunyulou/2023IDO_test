@@ -1,24 +1,80 @@
-// 导入 sql.js
+const express = require('express');
+const cors = require('cors');
 const initSqlJs = require('sql.js');
-const fs = require('fs'); // 用于文件操作
+const fs = require('fs');
+const path = require('path');
 
-// 初始化 SQL.js
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public')); // 处理public目录下的静态文件
+
+let db;
+
+// 初始化数据库
 initSqlJs().then(SQL => {
-    // 创建一个数据库实例
-    const db = new SQL.Database();
+    // 如果不存在数据库文件，则创建一个新的数据库文件
+    if (!fs.existsSync('likes.db')) {
+        db = new SQL.Database();
+        db.run("CREATE TABLE likes (imageId TEXT PRIMARY KEY, count INTEGER)");
+        db.run("CREATE TABLE user_likes (userId TEXT, imageId TEXT, liked BOOLEAN, PRIMARY KEY (userId, imageId))");
+        const data = db.export();
+        fs.writeFileSync('likes.db', Buffer.from(data));
+    } else {
+        const fileBuffer = fs.readFileSync('likes.db');
+        db = new SQL.Database(new Uint8Array(fileBuffer));
+    }
+});
 
-    // 创建表
-    db.run("CREATE TABLE IF NOT EXISTS likes (imageId TEXT PRIMARY KEY, count INTEGER)");
-    db.run("CREATE TABLE IF NOT EXISTS user_likes (userId TEXT, imageId TEXT, liked BOOLEAN, PRIMARY KEY (userId, imageId))");
+// 处理 /likes 路由
+app.get('/likes', (req, res) => {
+    const userId = req.query.userId;
+    const likesResult = db.exec("SELECT * FROM likes");
+    const userLikesResult = db.exec(`SELECT * FROM user_likes WHERE userId='${userId}'`);
 
-    // 你可以将数据库保存到文件系统
-    // 这里假设数据库将被保存为 'database.sqlite'
-    const filebuffer = db.export();
-    fs.writeFileSync('database.sqlite', new Buffer.from(filebuffer));
+    const likeCounts = likesResult.length ? likesResult[0].values.reduce((acc, row) => {
+        acc[row[0]] = row[1];
+        return acc;
+    }, {}) : {};
 
-    // 如果需要从文件加载数据库
-    // const filebuffer = fs.readFileSync('database.sqlite');
-    // const db = new SQL.Database(new Uint8Array(filebuffer));
-}).catch(err => {
-    console.error('Error initializing SQL.js:', err);
+    const userLikes = userLikesResult.length ? userLikesResult[0].values.reduce((acc, row) => {
+        acc[row[1]] = row[2] === 1;
+        return acc;
+    }, {}) : {};
+
+    res.json({ likeCounts, userLikes });
+});
+
+// 处理 /like 路由
+app.post('/like', (req, res) => {
+    const { userId, imageId, liked } = req.body;
+
+    db.run(`INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES ('${userId}', '${imageId}', ${liked})`);
+
+    const likeCountResult = db.exec(`SELECT count FROM likes WHERE imageId='${imageId}'`);
+    let likeCount = likeCountResult.length ? likeCountResult[0].values[0][0] : 0;
+
+    if (liked) {
+        likeCount += 1;
+    } else {
+        likeCount -= 1;
+    }
+
+    db.run(`INSERT OR REPLACE INTO likes (imageId, count) VALUES ('${imageId}', ${likeCount})`);
+
+    const data = db.export();
+    fs.writeFileSync('likes.db', Buffer.from(data));
+
+    res.json({ likeCount });
+});
+
+// 处理所有其他请求，返回index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+// 启动服务器
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
