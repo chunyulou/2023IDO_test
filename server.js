@@ -66,7 +66,7 @@ app.post('/like', (req, res) => {
     db.run(`INSERT OR REPLACE INTO likes (imageId, count) VALUES ('${imageId}', ${likeCount})`);
 
     const data = db.export();
-    fs.writeFileSync('likes.db', data);
+    fs.writeFileSync('database.js', data);
 
     res.json({ likeCount });
 });
