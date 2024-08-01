@@ -52,8 +52,10 @@ initSqlJs().then(SQL => {
     app.post('/like', (req, res) => {
         const { userId, imageId, liked } = req.body;
 
+        // 更新 user_likes 表
         db.run(`INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES ('${userId}', '${imageId}', ${liked})`);
 
+        // 获取并更新 likes 表中的计数
         const likeCountResult = db.exec(`SELECT count FROM likes WHERE imageId='${imageId}'`);
         let likeCount = likeCountResult.length ? likeCountResult[0].values[0][0] : 0;
 
@@ -63,13 +65,16 @@ initSqlJs().then(SQL => {
             likeCount -= 1;
         }
 
+        // 更新 likes 表
         db.run(`INSERT OR REPLACE INTO likes (imageId, count) VALUES ('${imageId}', ${likeCount})`);
 
+        // 将数据库导出到文件
         const data = db.export();
         fs.writeFileSync(dbPath, Buffer.from(data));
 
         res.json({ likeCount });
     });
+
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

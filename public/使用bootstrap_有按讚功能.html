@@ -213,11 +213,11 @@
                         const likeCount = likeCounts[i] || 0;
                         const liked = userLikes[i] || false;
                         likeOverlay.innerHTML = `
-                        <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                            <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
-                        </button>
-                        <div class="like-counter">${likeCount}</div>
-                    `;
+                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
+                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
+                    </button>
+                    <div class="like-counter">${likeCount}</div>
+                `;
 
                         imageContainer.appendChild(img);
                         imageContainer.appendChild(likeOverlay);
@@ -269,6 +269,7 @@
                 })
                 .catch(error => console.error('Error fetching initial data:', error));
         });
+
     </script>
 
 
