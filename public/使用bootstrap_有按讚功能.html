@@ -156,8 +156,7 @@
     </script>
 
 
-
-    <!--cookie儲存按讚狀態-->
+    <!-- cookie儲存按讚狀態 -->
     <script>
         // 設定 Cookie
         function setCookie(name, value, days) {
@@ -187,19 +186,16 @@
             document.cookie = name + '=; Max-Age=-99999999;';
         }
 
-    </script>
-
-    <!--動態生成右框輪播便利貼、愛心點擊計數功能-->
-    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const carouselInner = document.querySelector('.carousel-inner');
+            const userId = 'someUserId'; // 使用实际用户ID
 
             // 获取初始点赞数据
-            fetch('https://two023ido-test.onrender.com/likes?userId=someUserId') // 确保传递 userId
+            fetch(`https://two023ido-test.onrender.com/likes?userId=${userId}`)
                 .then(response => response.json())
                 .then(data => {
-                    const likeCounts = data.likeCounts || {}; // 从服务器返回的 likeCounts
-                    const userLikes = data.userLikes || {}; // 从服务器返回的 userLikes
+                    const likeCounts = data.likeCounts || {};
+                    const userLikes = data.userLikes || {};
 
                     // 动态生成右框轮播便利贴
                     for (let i = 1; i <= 28; i++) {
@@ -214,14 +210,14 @@
 
                         const likeOverlay = document.createElement('div');
                         likeOverlay.className = 'like-overlay';
-                        const likeCount = likeCounts[i] || 0; // 默认值为0
-                        const liked = userLikes[i] || false; // 默认值为false
+                        const likeCount = likeCounts[i] || 0;
+                        const liked = userLikes[i] || false;
                         likeOverlay.innerHTML = `
-                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
-                    </button>
-                    <div class="like-counter">${likeCount}</div>
-                `;
+                        <button class="like-button" data-image-id="${i}" data-liked="${liked}">
+                            <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
+                        </button>
+                        <div class="like-counter">${likeCount}</div>
+                    `;
 
                         imageContainer.appendChild(img);
                         imageContainer.appendChild(likeOverlay);
@@ -238,10 +234,8 @@
                             const liked = likeButton.dataset.liked === 'true';
                             const newLikeStatus = !liked;
 
-                            // Toggle liked status
                             likeButton.dataset.liked = newLikeStatus;
 
-                            // Update button icon and like counter
                             const newIcon = newLikeStatus
                                 ? '/images/red-heart.png'
                                 : '/images/empty-heart.png';
@@ -251,7 +245,7 @@
                                 headers: {
                                     'Content-Type': 'application/json',
                                 },
-                                body: JSON.stringify({ userId: 'someUserId', imageId: imageId, liked: newLikeStatus }),
+                                body: JSON.stringify({ userId: userId, imageId: imageId, liked: newLikeStatus }),
                             })
                                 .then(response => {
                                     if (!response.ok) {
@@ -260,15 +254,14 @@
                                     return response.json();
                                 })
                                 .then(data => {
-                                    const likeCount = data.likeCount || 0; // 从服务器返回的最新计数
+                                    const likeCount = data.likeCount || 0;
                                     const counter = likeButton.nextElementSibling;
 
-                                    // Update like count and button icon
                                     counter.textContent = likeCount;
                                     likeButton.innerHTML = `<img src="${newIcon}" alt="${newLikeStatus ? 'Full Heart' : 'Empty Heart'}" width="30" height="30">`;
 
                                     // Update cookie
-                                    setCookie(`liked_${imageId}`, newLikeStatus, 14); // 存储14天
+                                    setCookie(`liked_${imageId}`, newLikeStatus, 14);
                                 })
                                 .catch(error => console.error('Error:', error));
                         }
@@ -276,19 +269,8 @@
                 })
                 .catch(error => console.error('Error fetching initial data:', error));
         });
-
-        // 设置 Cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
     </script>
+
 
 
 
