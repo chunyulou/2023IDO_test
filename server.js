@@ -53,10 +53,10 @@ initSqlJs().then(SQL => {
         const { userId, imageId, liked } = req.body;
 
         // 更新 user_likes 表
-        db.run(`INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES ('${userId}', '${imageId}', ${liked})`);
+        db.run(`INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES (?, ?, ?)`, [userId, imageId, liked]);
 
         // 获取并更新 likes 表中的计数
-        const likeCountResult = db.exec(`SELECT count FROM likes WHERE imageId='${imageId}'`);
+        const likeCountResult = db.exec(`SELECT count FROM likes WHERE imageId = ?`, [imageId]);
         let likeCount = likeCountResult.length ? likeCountResult[0].values[0][0] : 0;
 
         if (liked) {
@@ -66,18 +66,18 @@ initSqlJs().then(SQL => {
         }
 
         // 更新 likes 表
-        db.run(`INSERT OR REPLACE INTO likes (imageId, count) VALUES ('${imageId}', ${likeCount})`);
+        db.run(`INSERT OR REPLACE INTO likes (imageId, count) VALUES (?, ?)`, [imageId, likeCount]);
 
         // 将数据库导出到文件
         const data = db.export();
-        fs.writeFileSync(dbPath, Buffer.from(data));
+        fs.writeFileSync('likes.db', Buffer.from(data));
 
         res.json({ likeCount });
     });
 
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'public', 'likeindex.html'));
     });
 
     const PORT = process.env.PORT || 3000;
