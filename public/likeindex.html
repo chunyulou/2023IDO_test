@@ -12,6 +12,18 @@
 
 <body class="container ">
     <section class="IDo-LeftRight row my-5 ">
+        <div class="col-12">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">2023 教師研習營（台北場）我願意便利貼</h2>
+                    <h3 class="card-subtitle mb-3 text-muted text-center">「生命的圓滿－尋覓教師的春天」</h3>
+                    <p class="card-text">校園中的紛擾與困境 變化無常的境界是如何影響心情 如何能夠心得決定 化解境界的牽絆與繫縛 且看如何在八識心田中 除草與播種 種瓜得瓜 種豆得豆
+                        以善的因緣來成就善的迴力鏢 教師的春天有待咱們辛勤播種
+                        企盼攜手收成圓滿的人生
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-8 col-md-6 col-12 m-0 p-0  IDo-Left position-relative">
             <div class="btnImageAll position-absolute" style="width: 100%;height: 100%;">
             </div>
@@ -21,6 +33,9 @@
         <div class="col-lg-4 col-md-6 col-12 m-0 p-0  IDo-Right">
             <!-- 右框內容，例如 carousel -->
             <div id="carouselRight" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <!-- 動態生成的indicator將插入這裡 -->
+                </div>
                 <div class="carousel-inner">
                     <!-- 動態生成的圖片項目將插入這裡 -->
                 </div>
@@ -39,252 +54,18 @@
 
     </section>
 
-
-
     <!--動態生成左框愛心圖案、影片按鈕-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const btnImageAll = document.querySelector('.btnImageAll');
+    <script src="mainLeft.js"></script>
 
-            const imgSrcHeart = '/images/heart.png';
-            const imgSrcPlay = '/images/play.png';
-            const positions = [
-                { top: '59%', left: '40%', type: 'image', src: 'Frame 1.png' },
-                { top: '55%', left: '30%', type: 'video', src: 'video1.mp4' },
-                { top: '55%', left: '50%', type: 'image', src: 'Frame 2.png' },
-                { top: '62%', left: '70%', type: 'video', src: 'video2.mp4' },
-                { top: '67%', left: '20%', type: 'image', src: 'Frame 3.png' },
-                { top: '63%', left: '90%', type: 'image', src: 'Frame 4.png' },
-                { top: '80%', left: '69%', type: 'image', src: 'Frame 5.png' },
-                { top: '85%', left: '80%', type: 'image', src: 'Frame 6.png' },
-                { top: '86%', left: '10%', type: 'video', src: 'video3.mp4' },
-                { top: '62%', left: '2%', type: 'image', src: 'Frame 7.png' },
-                { top: '82%', left: '89%', type: 'video', src: 'video4.mp4' },
-                { top: '55%', left: '80%', type: 'image', src: 'Frame 8.png' },
-                { top: '65%', left: '10%', type: 'video', src: 'video5.mp4' },
-                { top: '85%', left: '20%', type: 'image', src: 'Frame 9.png' },
-                { top: '60%', left: '60%', type: 'image', src: 'Frame 10.png' }
-            ];
 
-            positions.forEach((pos, index) => {
-                const element = document.createElement('div');
-                element.classList.add('blinking-icons');
-                element.style.position = 'absolute';
-                element.style.top = pos.top;
-                element.style.left = pos.left;
-
-                const imgSrc = pos.type === 'image' ? imgSrcHeart : imgSrcPlay;
-
-                const imgElement = document.createElement('img');
-                imgElement.src = imgSrc;
-                imgElement.alt = `Icon ${index + 1}`;
-
-                element.dataset.bsToggle = 'modal';
-                element.dataset.bsTarget = `#exampleModal${index + 1}`;
-
-                if (index % 2 === 0) {
-                    element.classList.add('large-blinking');
-                } else {
-                    element.classList.add('small-blinking');
-                }
-
-                element.appendChild(imgElement);
-                btnImageAll.appendChild(element);
-
-                const modal = document.createElement('div');
-                modal.classList.add('modal', 'fade');
-                modal.id = `exampleModal${index + 1}`;
-                modal.tabIndex = -1;
-                modal.setAttribute('aria-labelledby', `exampleModalLabel${index + 1}`);
-                modal.setAttribute('aria-hidden', 'true');
-
-                const modalDialog = document.createElement('div');
-                modalDialog.classList.add('modal-dialog');
-
-                const modalContent = document.createElement('div');
-                modalContent.classList.add('modal-content');
-
-                const modalHeader = document.createElement('div');
-                modalHeader.classList.add('modal-header');
-
-                const modalCloseButton = document.createElement('button');
-                modalCloseButton.classList.add('btn-close');
-                modalCloseButton.type = 'button';
-                modalCloseButton.setAttribute('data-bs-dismiss', 'modal');
-                modalCloseButton.setAttribute('aria-label', 'Close');
-
-                modalHeader.appendChild(modalCloseButton);
-
-                const modalBody = document.createElement('div');
-                modalBody.classList.add('modal-body');
-
-                if (pos.type === 'image') {
-                    const imgInModal = document.createElement('img');
-                    imgInModal.src = `/images/${pos.src}`;
-                    imgInModal.classList.add('img-fluid');
-                    modalBody.appendChild(imgInModal);
-                } else if (pos.type === 'video') {
-                    const videoInModal = document.createElement('video');
-                    videoInModal.src = `video/${pos.src}`;
-                    videoInModal.controls = true;
-                    videoInModal.classList.add('video-fluid');
-
-                    // 监听用户交互事件
-                    imgElement.addEventListener('click', function () {
-                        videoInModal.play();
-                    });
-
-                    modal.addEventListener('hidden.bs.modal', function () {
-                        videoInModal.pause();
-                    });
-
-                    modalBody.appendChild(videoInModal);
-                }
-
-                modalContent.append(modalHeader, modalBody);
-                modalDialog.appendChild(modalContent);
-                modal.appendChild(modalDialog);
-
-                const idoLeftRight = document.querySelector('.IDo-LeftRight');
-                if (idoLeftRight) {
-                    idoLeftRight.appendChild(modal);
-                } else {
-                    console.error('Element with class "IDo-LeftRight" not found.');
-                }
-            });
-        });
-    </script>
-
+    <!-- 右框圖片按讚功能 -->
+    <script src="mainRight.js"></script>
 
     <!-- cookie儲存按讚狀態 -->
-    <script>
-        // 設定 Cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        // 讀取 Cookie
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        // 刪除 Cookie
-        function eraseCookie(name) {
-            document.cookie = name + '=; Max-Age=-99999999;';
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            const carouselInner = document.querySelector('.carousel-inner');
-            const userId = getUserId(); // 获取用户ID
-
-            // 获取初始点赞数据
-            fetch(`https://two023ido-test.onrender.com/likes?userId=${userId}`)
-                .then(response => {
-                    console.log("Fetch response status: ", response.status);
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Fetched data: ", data);
-                    const likeCounts = data.likeCounts || {};
-                    const userLikes = data.userLikes || {};
-
-                    // 动态生成右框轮播便利贴
-                    for (let i = 1; i <= 28; i++) {
-                        const imageContainer = document.createElement('div');
-                        imageContainer.classList.add('carousel-item');
-                        if (i === 1) imageContainer.classList.add('active');
-
-                        const img = document.createElement('img');
-                        img.src = `/images/image${i}.png`;
-                        img.className = 'd-block w-100 object-fit-cover';
-                        img.alt = `Slide ${i}`;
-
-                        const likeOverlay = document.createElement('div');
-                        likeOverlay.className = 'like-overlay';
-                        const likeCount = likeCounts[i] || 0;
-                        const liked = userLikes[i] || false;
-                        likeOverlay.innerHTML = `
-                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
-                    </button>
-                    <div class="like-counter">${likeCount}</div>
-                `;
-
-                        imageContainer.appendChild(img);
-                        imageContainer.appendChild(likeOverlay);
-                        carouselInner.appendChild(imageContainer);
-                    }
-
-                    // 处理爱心按钮点击
-                    carouselInner.addEventListener('click', function (event) {
-                        const target = event.target;
-
-                        if (target.tagName.toLowerCase() === 'img' && target.closest('.like-button')) {
-                            const likeButton = target.closest('.like-button');
-                            const imageId = likeButton.dataset.imageId;
-                            const liked = likeButton.dataset.liked === 'true';
-                            const newLikeStatus = !liked;
-
-                            likeButton.dataset.liked = newLikeStatus;
-
-                            const newIcon = newLikeStatus
-                                ? '/images/red-heart.png'
-                                : '/images/empty-heart.png';
-
-                            fetch('https://two023ido-test.onrender.com/like', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify({ userId: userId, imageId: imageId, liked: newLikeStatus }),
-                            })
-                                .then(response => {
-                                    console.log("Like response status: ", response.status);
-                                    if (!response.ok) {
-                                        throw new Error('Network response was not ok');
-                                    }
-                                    return response.json();
-                                })
-                                .then(data => {
-                                    console.log("Like response data: ", data);
-                                    const likeCount = data.likeCount || 0;
-                                    const counter = likeButton.nextElementSibling;
-
-                                    counter.textContent = likeCount;
-                                    likeButton.innerHTML = `<img src="${newIcon}" alt="${newLikeStatus ? 'Full Heart' : 'Empty Heart'}" width="30" height="30">`;
-
-                                    // Update cookie
-                                    setCookie(`liked_${imageId}`, newLikeStatus, 14);
-                                })
-                                .catch(error => console.error('Error:', error));
-                        }
-                    });
-                })
-                .catch(error => console.error('Error fetching initial data:', error));
-        });
-
-
-    </script>
-
     <script src="utils.js"></script>
 
 
-
-
-
-
+    <!-- Bootstrap 5.3.3 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

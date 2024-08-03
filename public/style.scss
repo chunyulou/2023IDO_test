@@ -1,3 +1,4 @@
+/* Existing styles and mixins */
 /* Define blinking icon mixin */
 @mixin blinking-icon($top, $left, $content: "") {
   position: absolute;
@@ -75,32 +76,23 @@ $positions: (
     line-height: 1px;
     font-weight: 800;
     text-align: center;
-
-
   }
 }
 
-
 /* Animation keyframes */
 @keyframes blink-large {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.3);
   }
 }
 
 @keyframes blink-small {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
@@ -124,7 +116,6 @@ $positions: (
   transform: translate(-50%, -50%);
   overflow: visible;
 
-
   #modal-image {
     max-width: 100%;
     max-height: 100%;
@@ -138,9 +129,7 @@ $positions: (
   video {
     width: 100%;
   }
-
 }
-
 
 /* 輪播圖相關樣式 */
 .carousel-inner {
@@ -191,4 +180,33 @@ $positions: (
   margin-top: 10px;
   color: black;
   font-size: 2rem;
+}
+
+/* New section styles */
+.IDo-LeftRight {
+  .card {
+    padding: 1.5rem;
+
+    .card-body {
+      .card-title {
+        font-size: 1.75rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .card-subtitle {
+        font-size: 1.25rem;
+        color: #6c757d;
+        text-align: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+      }
+    }
+  }
 }
