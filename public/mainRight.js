@@ -1,50 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // 獲取 Carousel 的內部容器和指示器容器
     const carouselInner = document.querySelector('#carouselRight .carousel-inner');
     const carouselIndicators = document.querySelector('#carouselRight .carousel-indicators');
-    const userId = getUserId(); // 使用cookies獲取使用者id
+    const userId = getUserId(); // 使用 cookies 獲取使用者 ID
 
     // 獲取初始點讚數據
     fetch(`https://two023ido-test.onrender.com/likes?userId=${userId}`)
-        .then(response => {
-            console.log("Fetch response status: ", response.status);
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log("Fetched data: ", data);
-            const likeCounts = data.likeCounts || {};
-            const userLikes = data.userLikes || {};
+            const likeCounts = data.likeCounts || {}; // 點讚數量
+            const userLikes = data.userLikes || {}; // 使用者點讚狀態
 
-            // 動態生成28張右框便利貼，使用輪播功能
-            const fragment = document.createDocumentFragment();// 避免網站load太久
+            const fragmentInner = document.createDocumentFragment(); // 用於批量插入圖片項的文檔片段
+            const fragmentIndicators = document.createDocumentFragment(); // 用於批量插入指示器的文檔片段
 
+            // 動態生成圖片項和指示器
             for (let i = 1; i <= 28; i++) {
-                // Create carousel item and indicator elements
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('carousel-item');
-                if (i === 1) imageContainer.classList.add('active');
-
-                const img = document.createElement('img');
-                img.src = `/images/image${i}.png`;
-                img.className = 'd-block w-100 object-fit-cover';
-                img.alt = `Slide ${i}`;
-                img.setAttribute('loading', 'lazy'); // 避免網站load太久
-
-                const likeOverlay = document.createElement('div');
-                likeOverlay.className = 'like-overlay';
-                const likeCount = likeCounts[i] || 0;
-                const liked = userLikes[i] || false;
-                likeOverlay.innerHTML = `
-                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
-                    </button>
-                    <div class="like-counter">${likeCount}</div>
-                `;
-
-                imageContainer.appendChild(img);
-                imageContainer.appendChild(likeOverlay);
-                fragment.appendChild(imageContainer);
-
-                // Create indicator
+                // 創建指示器
                 const indicator = document.createElement('button');
                 indicator.type = 'button';
                 indicator.dataset.bsTarget = '#carouselRight';
@@ -54,24 +26,47 @@ document.addEventListener('DOMContentLoaded', function () {
                     indicator.classList.add('active');
                     indicator.setAttribute('aria-current', 'true');
                 }
-                fragment.appendChild(indicator);
+                fragmentIndicators.appendChild(indicator);
+
+                // 創建圖片項
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('carousel-item');
+                if (i === 1) imageContainer.classList.add('active');
+
+                const img = document.createElement('img');
+                img.src = `/images/image${i}.png`;
+                img.className = 'd-block w-100 object-fit-cover';
+                img.alt = `Slide ${i}`;
+                img.setAttribute('loading', 'lazy'); // 應用懶加載
+
+                const likeOverlay = document.createElement('div');
+                likeOverlay.className = 'like-overlay';
+                const likeCount = likeCounts[i] || 0; // 點讚數量
+                const liked = userLikes[i] || false; // 是否已點讚
+                likeOverlay.innerHTML = `
+                    <button class="like-button" data-image-id="${i}" data-liked="${liked}">
+                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
+                    </button>
+                    <div class="like-counter">${likeCount}</div>
+                `;
+
+                imageContainer.appendChild(img);
+                imageContainer.appendChild(likeOverlay);
+                fragmentInner.appendChild(imageContainer);
             }
 
-            carouselInner.appendChild(fragment);
+            // 插入指示器和圖片項
+            carouselIndicators.appendChild(fragmentIndicators);
+            carouselInner.appendChild(fragmentInner);
 
-
-            // 便利貼點擊愛心功能
+            // 處理點讚按鈕的點擊事件
             carouselInner.addEventListener('click', function (event) {
                 const target = event.target;
-
                 if (target.tagName.toLowerCase() === 'img' && target.closest('.like-button')) {
                     const likeButton = target.closest('.like-button');
                     const imageId = likeButton.dataset.imageId;
                     const liked = likeButton.dataset.liked === 'true';
                     const newLikeStatus = !liked;
-
-                    likeButton.dataset.liked = newLikeStatus;
-
                     const newIcon = newLikeStatus
                         ? '/images/red-heart.png'
                         : '/images/empty-heart.png';
@@ -83,26 +78,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                         body: JSON.stringify({ userId: userId, imageId: imageId, liked: newLikeStatus }),
                     })
-                        .then(response => {
-                            console.log("Like response status: ", response.status);
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
+                        .then(response => response.json())
                         .then(data => {
-                            console.log("Like response data: ", data);
                             const likeCount = data.likeCount || 0;
                             const counter = likeButton.nextElementSibling;
 
                             counter.textContent = likeCount;
                             likeButton.innerHTML = `<img src="${newIcon}" alt="${newLikeStatus ? 'Full Heart' : 'Empty Heart'}" width="30" height="30">`;
 
-                            // Update cookie
+                            // 更新 cookies
                             setCookie(`liked_${imageId}`, newLikeStatus, 14);
                         })
                         .catch(error => console.error('Error:', error));
                 }
+            });
+
+            // 初始化 Carousel 插件
+            const carousel = new bootstrap.Carousel('#carouselRight', {
+                interval: 2000,
+                ride: 'carousel'
             });
         })
         .catch(error => console.error('Error fetching initial data:', error));
