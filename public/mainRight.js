@@ -15,20 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const userLikes = data.userLikes || {};
 
             // 動態生成28張右框便利貼，使用輪播功能
-            for (let i = 1; i <= 28; i++) {
-                // Create indicator
-                const indicator = document.createElement('button');
-                indicator.type = 'button';
-                indicator.dataset.bsTarget = '#carouselRight';
-                indicator.dataset.bsSlideTo = i - 1;
-                indicator.setAttribute('aria-label', `Slide ${i}`);
-                if (i === 1) {
-                    indicator.classList.add('active');
-                    indicator.setAttribute('aria-current', 'true');
-                }
-                carouselIndicators.appendChild(indicator);
+            const fragment = document.createDocumentFragment();// 避免網站load太久
 
-                // Create image container
+            for (let i = 1; i <= 28; i++) {
+                // Create carousel item and indicator elements
                 const imageContainer = document.createElement('div');
                 imageContainer.classList.add('carousel-item');
                 if (i === 1) imageContainer.classList.add('active');
@@ -37,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.src = `/images/image${i}.png`;
                 img.className = 'd-block w-100 object-fit-cover';
                 img.alt = `Slide ${i}`;
+                img.setAttribute('loading', 'lazy'); // 避免網站load太久
 
                 const likeOverlay = document.createElement('div');
                 likeOverlay.className = 'like-overlay';
@@ -51,8 +42,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 imageContainer.appendChild(img);
                 imageContainer.appendChild(likeOverlay);
-                carouselInner.appendChild(imageContainer);
+                fragment.appendChild(imageContainer);
+
+                // Create indicator
+                const indicator = document.createElement('button');
+                indicator.type = 'button';
+                indicator.dataset.bsTarget = '#carouselRight';
+                indicator.dataset.bsSlideTo = i - 1;
+                indicator.setAttribute('aria-label', `Slide ${i}`);
+                if (i === 1) {
+                    indicator.classList.add('active');
+                    indicator.setAttribute('aria-current', 'true');
+                }
+                fragment.appendChild(indicator);
             }
+
+            carouselInner.appendChild(fragment);
+
 
             // 便利貼點擊愛心功能
             carouselInner.addEventListener('click', function (event) {
