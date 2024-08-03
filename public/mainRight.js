@@ -65,8 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (target.tagName.toLowerCase() === 'img' && target.closest('.like-button')) {
                     const likeButton = target.closest('.like-button');
                     const imageId = likeButton.dataset.imageId;
-                    const liked = likeButton.dataset.liked === 'true';
+                    let liked = likeButton.dataset.liked === 'true';
                     const newLikeStatus = !liked;
+
+                    // Update like status and UI
+                    likeButton.dataset.liked = newLikeStatus;
                     const newIcon = newLikeStatus
                         ? '/images/red-heart.png'
                         : '/images/empty-heart.png';
@@ -83,10 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             const likeCount = data.likeCount || 0;
                             const counter = likeButton.nextElementSibling;
 
+                            // Update like count and button icon
                             counter.textContent = likeCount;
                             likeButton.innerHTML = `<img src="${newIcon}" alt="${newLikeStatus ? 'Full Heart' : 'Empty Heart'}" width="30" height="30">`;
 
-                            // 更新 cookies
+                            // Update cookies
                             setCookie(`liked_${imageId}`, newLikeStatus, 14);
                         })
                         .catch(error => console.error('Error:', error));
