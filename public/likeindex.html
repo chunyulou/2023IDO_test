@@ -187,12 +187,16 @@
         }
         document.addEventListener('DOMContentLoaded', function () {
             const carouselInner = document.querySelector('.carousel-inner');
-            const userId = 'someUserId'; // 使用实际用户ID
+            const userId = getUserId(); // 获取用户ID
 
             // 获取初始点赞数据
             fetch(`https://two023ido-test.onrender.com/likes?userId=${userId}`)
-                .then(response => response.json())
+                .then(response => {
+                    console.log("Fetch response status: ", response.status);
+                    return response.json();
+                })
                 .then(data => {
+                    console.log("Fetched data: ", data);
                     const likeCounts = data.likeCounts || {};
                     const userLikes = data.userLikes || {};
 
@@ -239,7 +243,7 @@
                                 ? '/images/red-heart.png'
                                 : '/images/empty-heart.png';
 
-                            fetch('https://two023ido-test.onrender.com/likes', {
+                            fetch('https://two023ido-test.onrender.com/like', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -247,12 +251,14 @@
                                 body: JSON.stringify({ userId: userId, imageId: imageId, liked: newLikeStatus }),
                             })
                                 .then(response => {
+                                    console.log("Like response status: ", response.status);
                                     if (!response.ok) {
                                         throw new Error('Network response was not ok');
                                     }
                                     return response.json();
                                 })
                                 .then(data => {
+                                    console.log("Like response data: ", data);
                                     const likeCount = data.likeCount || 0;
                                     const counter = likeButton.nextElementSibling;
 
@@ -269,9 +275,10 @@
                 .catch(error => console.error('Error fetching initial data:', error));
         });
 
+
     </script>
 
-
+    <script src="utils.js"></script>
 
 
 
