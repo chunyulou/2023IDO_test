@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 獲取 Carousel 的內部容器和指示器容器
     const carouselInner = document.querySelector('#carouselRight .carousel-inner');
     const carouselIndicators = document.querySelector('#carouselRight .carousel-indicators');
     const userId = getUserId(); // 使用 cookies 獲取使用者 ID
