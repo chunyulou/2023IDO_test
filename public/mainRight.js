@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.src = `/images/image${i}.png`;
                 img.className = 'd-block w-100 object-fit-cover';
                 img.alt = `Slide ${i}`;
-                img.setAttribute('loading', 'lazy');
+                if (i <= 3) img.setAttribute('loading', 'eager');
 
                 const likeOverlay = document.createElement('div');
                 likeOverlay.className = 'like-overlay';
