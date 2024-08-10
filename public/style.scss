@@ -108,29 +108,46 @@ $positions: (
 }
 
 /* Modal styles */
+/* 强制居中 Modal 样式 */
 .modal {
-  display: none;
-  position: fixed;  /* 确保 modal 是固定的，始终在视口中间 */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: visible;
+  display: flex;  /* 使用 flexbox 布局 */
+  align-items: center;  /* 垂直居中 */
+  justify-content: center;  /* 水平居中 */
+  position: fixed;  /* 固定在视口中 */
+  top: 0;
+  left: 0;
+  width: 100%;  /* 占满整个视口 */
+  height: 100%;  /* 占满整个视口 */
+  overflow: hidden;  /* 确保内容不超出 */
   z-index: 1050;  /* 确保 modal 置于其他内容之上 */
-
-  #modal-image {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-  }
-
-  video {
-    width: 100%;
-  }
+  background-color: rgba(0, 0, 0, 0.5);  /* 添加半透明背景 */
 }
+
+.modal-dialog {
+  margin: 0;  /* 去除默认的 margin */
+  max-width: 90%;  /* 确保在小屏幕设备上也能很好地显示 */
+  max-height: 90%;  /* 控制 modal 的最大高度 */
+}
+
+.modal-content {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 
 /* 輪播圖相關樣式 */
 .carousel-inner {
