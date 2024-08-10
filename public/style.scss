@@ -124,9 +124,13 @@ $positions: (
 }
 
 .modal-dialog {
-  margin: 0;  /* 去除默认的 margin */
-  max-width: 90%;  /* 确保在小屏幕设备上也能很好地显示 */
-  max-height: 90%;  /* 控制 modal 的最大高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  transform: none;
 }
 
 .modal-content {
