@@ -114,6 +114,9 @@ window.addEventListener('scroll', function () {
     var modals = document.querySelectorAll('.modal.show');
     modals.forEach(function (modal) {
         var scrollTop = window.scrollY || document.documentElement.scrollTop;
-        modal.style.top = scrollTop + 'px';
+        var windowHeight = window.innerHeight;
+        var modalHeight = modal.offsetHeight;
+        modal.style.top = (scrollTop + (windowHeight - modalHeight) / 2) + 'px';
     });
 });
+
