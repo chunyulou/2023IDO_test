@@ -151,6 +151,20 @@ video {
   max-height: 100%;
 }
 
+.modal.show {
+  position: fixed; /* 改用 fixed 以便於窗口滾動時保持位置 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  max-width: 90%; /* 防止 modal 超出屏幕寬度 */
+  width: auto; /* 根據內容調整寬度 */
+  z-index: 1055;
+}
+
+
+
 
 
 /* 輪播圖相關樣式 */
