@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Existing styles and mixins */
 /* Define blinking icon mixin */
 /* Define positions and content data */
 /* Generate elements and add them to the container */
@@ -209,7 +210,7 @@
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 3.5vw;
+  font-size: 3vw;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -240,24 +241,58 @@
 }
 /* Modal styles */
 .modal {
-  display: none;
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  transform: none;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modal.show {
+  position: fixed; /* 改用 fixed 以便於窗口滾動時保持位置 */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: visible;
-}
-.modal #modal-image {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-}
-.modal video {
-  width: 100%;
+  display: grid;
+  place-items: center;
+  max-width: 90%; /* 防止 modal 超出屏幕寬度 */
+  width: auto; /* 根據內容調整寬度 */
+  z-index: 1055;
 }
 
 /* 輪播圖相關樣式 */
@@ -302,4 +337,26 @@
   margin-top: 10px;
   color: black;
   font-size: 2rem;
+}
+
+/* New section styles */
+.IDo-LeftRight .card {
+  padding: 1.5rem;
+}
+.IDo-LeftRight .card .card-body .card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.IDo-LeftRight .card .card-body .card-subtitle {
+  font-size: 1.25rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.IDo-LeftRight .card .card-body .card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
 }/*# sourceMappingURL=style.css.map */
