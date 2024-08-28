@@ -38,7 +38,7 @@ $positions: (
   (280px, 200px, "點我"),
   (251px, 630px, "點我"),
   (269px, 629px, "點我"),
-  (240px, 450px, "點我"),
+  (240px, 450px, "點我")
 );
 
 /* Generate elements and add them to the container */
@@ -81,7 +81,8 @@ $positions: (
 
 /* Animation keyframes */
 @keyframes blink-large {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -90,7 +91,8 @@ $positions: (
 }
 
 @keyframes blink-small {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -110,12 +112,12 @@ $positions: (
 /* Modal styles */
 .modal {
   display: none;
-  position: fixed;  /* 确保 modal 是固定的，始终在视口中间 */
+  position: fixed; /* 确保 modal 是固定的，始终在视口中间 */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: visible;
-  z-index: 1050;  /* 确保 modal 置于其他内容之上 */
+  z-index: 1050; /* 确保 modal 置于其他内容之上 */
 
   #modal-image {
     max-width: 100%;
