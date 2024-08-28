@@ -111,14 +111,6 @@ $positions: (
 
 /* Modal styles */
 .modal {
-  display: none;
-  position: fixed; /* 确保 modal 是固定的，始终在视口中间 */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: visible;
-  z-index: 1050; /* 确保 modal 置于其他内容之上 */
-
   display: flex; /* 使用 flexbox 布局 */
   align-items: center; /* 垂直居中 */
   justify-content: center; /* 水平居中 */
@@ -131,6 +123,7 @@ $positions: (
   z-index: 1050; /* 确保 modal 置于其他内容之上 */
   background-color: rgba(0, 0, 0, 0.5); /* 添加半透明背景 */
 }
+
 .modal-dialog {
   display: flex;
   align-items: center;
