@@ -65,14 +65,14 @@ $positions: (
 
   img {
     width: 3vw;
-    cursor: pointer; // 将光标样式改为 pointer，以表示这是一个可点击的元素
+    cursor: pointer;
   }
 
   &::after {
     display: block;
     font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
     color: aliceblue;
-    font-size: 3.5vw; // 使用vw单位调整文字大小
+    font-size: 3vw; // 使用vw單位調整文字大小，避免小螢幕文字過大
     line-height: 1px;
     font-weight: 800;
     text-align: center;
@@ -111,6 +111,7 @@ $positions: (
 
 /* Modal styles */
 .modal {
+<<<<<<< HEAD
   display: none;
   position: fixed; /* 确保 modal 是固定的，始终在视口中间 */
   top: 50%;
@@ -118,20 +119,48 @@ $positions: (
   transform: translate(-50%, -50%);
   overflow: visible;
   z-index: 1050; /* 确保 modal 置于其他内容之上 */
+=======
+  display: flex; /* 使用 flexbox 布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  position: fixed; /* 固定在視窗 */
+  top: 50;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 确保内容不超出 */
+  z-index: 1050; /* 确保 modal 置于其他内容之上 */
+  background-color: rgba(0, 0, 0, 0.5); /* 添加半透明背景 */
+}
+>>>>>>> 30eaec3ef8b3cfafef4e42d30bb18a9d638b0461
 
-  #modal-image {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-  }
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+  transform: none;
+}
 
-  video {
-    width: 100%;
-  }
+.modal-content {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* 輪播圖相關樣式 */
