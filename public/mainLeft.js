@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const modalDialog = document.createElement('div');
         modalDialog.classList.add('modal-dialog');
 
+        modalDialog.classList.add('modal-dialog-centered');
+
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
 
