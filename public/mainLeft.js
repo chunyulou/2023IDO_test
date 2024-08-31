@@ -48,11 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
         btnImageAll.appendChild(element);
 
         const modal = document.createElement('div');
-        modal.classList.add('modal', 'fade');
+        modal.classList.add('modal');
         modal.id = `exampleModal${index + 1}`;
         modal.tabIndex = -1;
         modal.setAttribute('aria-labelledby', `exampleModalLabel${index + 1}`);
-        modal.setAttribute('aria-hidden', 'false');
 
         const modalDialog = document.createElement('div');
         modalDialog.classList.add('modal-dialog');

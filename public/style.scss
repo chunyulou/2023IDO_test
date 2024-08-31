@@ -129,6 +129,7 @@ $positions: (
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   /* 添加半透明背景 */
+  z-index: 1050;
 }
 
 .modal-dialog {
