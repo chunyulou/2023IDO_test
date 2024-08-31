@@ -33,24 +33,32 @@ initSqlJs().then(SQL => {
 
 // 处理 /likes 路由
 app.get('/likes', (req, res) => {
-    const userId = req.query.userId;
-    console.log(`Received /likes request for userId: ${userId}`);
-    const likesResult = db.exec("SELECT * FROM likes");
-    const userLikesResult = db.exec(`SELECT * FROM user_likes WHERE userId = ?`, [userId]);
+    try {
+        const userId = req.query.userId;
+        console.log(`Received /likes request for userId: ${userId}`);
 
-    const likeCounts = likesResult.length ? likesResult[0].values.reduce((acc, row) => {
-        acc[row[0]] = row[1];
-        return acc;
-    }, {}) : {};
+        // 同步執行的部分應改為異步，如果可能的話
+        const likesResult = db.exec("SELECT * FROM likes");
+        const userLikesResult = db.exec(`SELECT * FROM user_likes WHERE userId = ?`, [userId]);
 
-    const userLikes = userLikesResult.length ? userLikesResult[0].values.reduce((acc, row) => {
-        acc[row[1]] = row[2] === 1;
-        return acc;
-    }, {}) : {};
+        const likeCounts = likesResult.length ? likesResult[0].values.reduce((acc, row) => {
+            acc[row[0]] = row[1];
+            return acc;
+        }, {}) : {};
 
-    res.json({ likeCounts, userLikes });
-    console.log(`Sent response for /likes request: ${JSON.stringify({ likeCounts, userLikes })}`);
+        const userLikes = userLikesResult.length ? userLikesResult[0].values.reduce((acc, row) => {
+            acc[row[1]] = row[2] === 1;
+            return acc;
+        }, {}) : {};
+
+        res.json({ likeCounts, userLikes });
+        console.log(`Sent response for /likes request: ${JSON.stringify({ likeCounts, userLikes })}`);
+    } catch (error) {
+        console.error('Error processing /likes request:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
+
 
 // 处理 /like 路由
 app.post('/like', (req, res) => {
@@ -79,7 +87,7 @@ app.post('/like', (req, res) => {
 
 // 处理所有其他请求，返回index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'public', 'likeindex.html'));
 });
 
 // 启动服务器

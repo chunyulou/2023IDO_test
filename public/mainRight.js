@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const liked = userLikes[i] || false;
                 likeOverlay.innerHTML = `
                     <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? '/images/red-heart.png' : '/images/empty-heart.png'}" alt="Like" width="30" height="30">
+                        <img src="${liked ? '/public/images/red-heart.png' : '/public/images/empty-heart.png'}" alt="Like" width="30" height="30">
                     </button>
                     <div class="like-counter">${likeCount}</div>
                 `;
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const liked = likeButton.dataset.liked === 'true';
                     const newLikeStatus = !liked;
                     const newIcon = newLikeStatus
-                        ? '/images/red-heart.png'
-                        : '/images/empty-heart.png';
+                        ? '/public/images/red-heart.png'
+                        : '/public/images/empty-heart.png';
 
                     fetch('https://two023ido-test.onrender.com/like', {
                         method: 'POST',
