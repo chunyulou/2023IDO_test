@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const btnImageAll = document.querySelector('.btnImageAll');
     //左框圖片影音圖示
-    const imgSrcHeart = '/public/images/heart.png';
-    const imgSrcPlay = '/public/images/play.png';
+    const imgSrcHeart = '/images/heart.png';
+    const imgSrcPlay = '/images/play.png';
     //圖示位置分布
     const positions = [
         { top: '59%', left: '40%', type: 'image', src: 'Frame 1.png' },
@@ -78,12 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (pos.type === 'image') {
             const imgInModal = document.createElement('img');
-            imgInModal.src = `/public/images/${pos.src}`;
+            imgInModal.src = `/images/${pos.src}`;
             imgInModal.classList.add('img-fluid');
             modalBody.appendChild(imgInModal);
         } else if (pos.type === 'video') {
             const videoInModal = document.createElement('video');
-            videoInModal.src = `/public/video/${pos.src}`;
+            videoInModal.src = `/video/${pos.src}`;
             videoInModal.controls = true;
             videoInModal.classList.add('video-fluid');
 
