@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     const btnImageAll = document.querySelector('.btnImageAll');
-    //左框圖片影音圖示
+    if (!btnImageAll) {
+        console.error('Element with class "btnImageAll" not found.');
+        return;
+    }
+
+    // 左框圖片影音圖示
     const imgSrcHeart = '/images/heart.png';
     const imgSrcPlay = '/images/play.png';
-    //圖示位置分布
+
+    // 圖示位置分布
     const positions = [
         { top: '59%', left: '40%', type: 'image', src: 'Frame 1.png' },
         { top: '55%', left: '30%', type: 'video', src: 'video1.mp4' },
@@ -21,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { top: '85%', left: '20%', type: 'image', src: 'Frame 9.png' },
         { top: '60%', left: '60%', type: 'image', src: 'Frame 10.png' }
     ];
-    //動態生成圖示modal功能
+
+    // 動態生成圖示和模態框
     positions.forEach((pos, index) => {
         const element = document.createElement('div');
         element.classList.add('blinking-icons');
@@ -38,12 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         element.dataset.bsToggle = 'modal';
         element.dataset.bsTarget = `#exampleModal${index + 1}`;
 
-        if (index % 2 === 0) {
-            element.classList.add('large-blinking');
-        } else {
-            element.classList.add('small-blinking');
-        }
-
+        element.classList.add(index % 2 === 0 ? 'large-blinking' : 'small-blinking');
         element.appendChild(imgElement);
         btnImageAll.appendChild(element);
 
@@ -54,9 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.setAttribute('aria-labelledby', `exampleModalLabel${index + 1}`);
 
         const modalDialog = document.createElement('div');
-        modalDialog.classList.add('modal-dialog');
-
-        modalDialog.classList.add('modal-dialog-centered');
+        modalDialog.classList.add('modal-dialog', 'modal-dialog-centered');
 
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
@@ -86,16 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
             videoInModal.controls = true;
             videoInModal.classList.add('video-fluid');
 
+            modalBody.appendChild(videoInModal);
+
             // 使用者點圖示觸發事件
             imgElement.addEventListener('click', function () {
+                const modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
+            });
+
+            modal.addEventListener('shown.bs.modal', function () {
                 videoInModal.play();
             });
 
             modal.addEventListener('hidden.bs.modal', function () {
                 videoInModal.pause();
+                videoInModal.currentTime = 0; // Optional: Reset video to the beginning
             });
-
-            modalBody.appendChild(videoInModal);
         }
 
         modalContent.append(modalHeader, modalBody);
@@ -120,4 +126,3 @@ window.addEventListener('scroll', function () {
         modal.style.top = (scrollTop + (windowHeight - modalHeight) / 2) + 'px';
     });
 });
-
