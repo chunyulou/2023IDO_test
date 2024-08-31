@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btnImageAll.appendChild(element);
 
         const modal = document.createElement('div');
-        modal.classList.add('modal');
+        modal.classList.add('modal', 'fade');
         modal.id = `exampleModal${index + 1}`;
         modal.tabIndex = -1;
         modal.setAttribute('aria-labelledby', `exampleModalLabel${index + 1}`);
