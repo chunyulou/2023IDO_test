@@ -257,7 +257,6 @@
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.1);
   /* 添加半透明背景 */
-  z-index: 1050;
 }
 
 .modal-dialog {
