@@ -129,6 +129,8 @@ $positions: (
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.1);
   /* 添加半透明背景 */
+  display: none; /* 確保默認狀態下是隱藏的 */
+  visibility: hidden;
 }
 
 .modal-dialog {
