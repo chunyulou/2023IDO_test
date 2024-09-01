@@ -1,6 +1,6 @@
 /* Existing styles and mixins */
 /* Define blinking icon mixin */
-@mixin blinking-icon($top, $left, $content: "", $imgSize: 1.5vw) {
+@mixin blinking-icon($top, $left, $content: "", $imgSize: 2vw) {
   position: absolute;
   top: $top;
   left: $left;
