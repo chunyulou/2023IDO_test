@@ -38,11 +38,11 @@ $card-subtitle-color: #6c757d;
 
 /* 定義位置和內容數據 */
 $positions: (
-  (300px, 100px, "點我", 2rem),
-  (280px, 200px, "點我", 1.5rem),
-  (251px, 630px, "點我", 2rem),
-  (269px, 629px, "點我", 1.5rem),
-  (240px, 450px, "點我", 2rem)
+  (300px, 100px, "點我", 1rem),
+  (280px, 200px, "點我", 1rem),
+  (251px, 630px, "點我", 1rem),
+  (269px, 629px, "點我", 1rem),
+  (240px, 450px, "點我", 1rem)
 );
 
 /* 生成閃爍圖標元素 */
@@ -98,10 +98,10 @@ $positions: (
 @media screen and (max-width: 480px) {
   .blinking-icons {
     img {
-      width: 1.5rem;
+      width: 1rem;
     }
     &::after {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 }
