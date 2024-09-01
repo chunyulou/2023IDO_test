@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             modalBody.appendChild(videoInModal);
 
-            // 使用者點圖示觸發事件
-            imgElement.addEventListener('click', function () {
-                const modalInstance = new bootstrap.Modal(modal);
-                modalInstance.show();
-            });
+            // // 使用者點圖示觸發事件
+            // imgElement.addEventListener('click', function () {
+            //     const modalInstance = new bootstrap.Modal(modal);
+            //     modalInstance.show();
+            // });
 
             modal.addEventListener('shown.bs.modal', function () {
                 videoInModal.play();
