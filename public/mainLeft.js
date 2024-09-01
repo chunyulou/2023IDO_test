@@ -103,9 +103,11 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.addEventListener('hidden.bs.modal', function () {
                 videoInModal.pause();
                 videoInModal.currentTime = 0; // Optional: Reset video to the beginning
-                // 手動移除 show 屬性
-                modal.classList.remove('show');
-                modal.style.display = 'none';
+                // 用 Bootstrap 方法隱藏 modal
+                const modalInstance = bootstrap.Modal.getInstance(modal);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
             });
         }
 
