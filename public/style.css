@@ -333,24 +333,22 @@ video {
   font-size: 2rem;
 }
 
-/* New section styles */
-.IDo-LeftRight .card {
-  padding: 1.5rem;
-}
-.IDo-LeftRight .card .card-body .card-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.IDo-LeftRight .card .card-body .card-subtitle {
-  font-size: 1.25rem;
-  color: #6c757d;
-  text-align: center;
-  margin-bottom: 0.75rem;
-}
-.IDo-LeftRight .card .card-body .card-text {
-  font-size: 1rem;
+.card {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
   line-height: 1.6;
-  text-align: justify;
+}
+.card .card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.card .card-subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+.card .card-text {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
