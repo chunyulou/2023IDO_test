@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.id = `exampleModal${index + 1}`;
         modal.tabIndex = -1;
         modal.setAttribute('aria-labelledby', `exampleModalLabel${index + 1}`);
+        modal.setAttribute('aria-hidden', 'true');
 
         const modalDialog = document.createElement('div');
         modalDialog.classList.add('modal-dialog', 'modal-dialog-centered');
@@ -88,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             modalBody.appendChild(videoInModal);
 
-            // // 使用者點圖示觸發事件
-            // imgElement.addEventListener('click', function () {
-            //     const modalInstance = new bootstrap.Modal(modal);
-            //     modalInstance.show();
-            // });
+            // 使用者點圖示觸發事件
+            imgElement.addEventListener('click', function () {
+                const modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
+            });
 
             modal.addEventListener('shown.bs.modal', function () {
                 videoInModal.play();
