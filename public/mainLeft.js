@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             imgElement.addEventListener('click', function () {
                 const modalInstance = new bootstrap.Modal(modal);
                 modalInstance.show();
+                modal.classList.add('show');
             });
 
             modal.addEventListener('shown.bs.modal', function () {
