@@ -49,8 +49,10 @@ initSqlJs().then(SQL => {
     app.post('/like', (req, res) => {
         const { userId, imageId, liked } = req.body;
 
+        // 更新用戶的喜歡狀態
         db.run(`INSERT OR REPLACE INTO user_likes (userId, imageId, liked) VALUES ('${userId}', '${imageId}', ${liked})`);
 
+        // 更新該圖片的喜歡計數
         const likeCountResult = db.exec(`SELECT count FROM likes WHERE imageId='${imageId}'`);
         let likeCount = likeCountResult.length ? likeCountResult[0].values[0][0] : 0;
 
@@ -70,7 +72,7 @@ initSqlJs().then(SQL => {
 
     // 处理所有其他请求，返回index.html
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'public', 'likeindex.html'));
     });
 
     // 启动服务器

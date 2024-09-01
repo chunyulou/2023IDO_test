@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (target.tagName.toLowerCase() === 'img' && target.closest('.like-button')) {
                     const likeButton = target.closest('.like-button');
                     const imageId = likeButton.dataset.imageId;
-                    const liked = likeButton.dataset.liked === 'true';
-                    const newLikeStatus = !liked;
+                    const liked = likeButton.dataset.liked === 'true'; // 檢查當前是否已經喜歡
+                    const newLikeStatus = !liked; // 切換喜歡狀態
                     const newIcon = newLikeStatus
-                        ? '/images/red-heart.png'
-                        : '/images/empty-heart.png';
+                        ? '/images/red-heart.png' // 如果現在喜歡，顯示紅心
+                        : '/images/empty-heart.png'; // 如果現在不喜歡，顯示空心
 
                     fetch('https://two023ido-test.onrender.com/like', {
                         method: 'POST',
@@ -77,13 +77,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             const counter = likeButton.nextElementSibling;
 
                             counter.textContent = likeCount;
+                            likeButton.dataset.liked = newLikeStatus; // 更新 dataset.liked 屬性
                             likeButton.innerHTML = `<img src="${newIcon}" alt="${newLikeStatus ? 'Full Heart' : 'Empty Heart'}" width="30" height="30">`;
 
-                            setCookie(`liked_${imageId}`, newLikeStatus, 14);
+                            setCookie(`liked_${imageId}`, newLikeStatus, 14); // 更新 Cookie
                         })
                         .catch(error => console.error('Error:', error));
                 }
             });
+
 
             new bootstrap.Carousel('#carouselRight', {
                 interval: 2000,
