@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Existing styles and mixins */
 /* Define blinking icon mixin */
-/* Define positions and content data */
+/* Define positions, content data, and image sizes */
 /* Generate elements and add them to the container */
 .blinking-icons:nth-child(2) {
   position: absolute;
@@ -10,7 +10,7 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(2) img {
-  width: 3.5vw;
+  width: 3vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -88,7 +88,7 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(4) img {
-  width: 3.5vw;
+  width: 3vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -166,7 +166,7 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(6) img {
-  width: 3.5vw;
+  width: 3vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -319,8 +319,8 @@ video {
   padding: 0;
 }
 .like-button img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   transition: transform 0.3s;
 }
 .like-button:hover img {
@@ -335,20 +335,20 @@ video {
 
 .card {
   font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.6;
 }
 .card .card-title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
 }
 .card .card-subtitle {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #6c757d;
 }
 .card .card-text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333;
   text-align: center;
 }/*# sourceMappingURL=style.css.map */

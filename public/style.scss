@@ -1,12 +1,12 @@
 /* Existing styles and mixins */
 /* Define blinking icon mixin */
-@mixin blinking-icon($top, $left, $content: "") {
+@mixin blinking-icon($top, $left, $content: "", $imgSize: 2.5vw) {
   position: absolute;
   top: $top;
   left: $left;
 
   img {
-    width: 3.5vw;
+    width: $imgSize;
     cursor: pointer;
 
     @media screen and (max-width: 480px) {
@@ -32,13 +32,13 @@
   }
 }
 
-/* Define positions and content data */
+/* Define positions, content data, and image sizes */
 $positions: (
-  (300px, 100px, "點我"),
-  (280px, 200px, "點我"),
-  (251px, 630px, "點我"),
-  (269px, 629px, "點我"),
-  (240px, 450px, "點我")
+  (300px, 100px, "點我", 3vw),
+  (280px, 200px, "點我", 3.5vw),
+  (251px, 630px, "點我", 3vw),
+  (269px, 629px, "點我", 3.5vw),
+  (240px, 450px, "點我", 3vw)
 );
 
 /* Generate elements and add them to the container */
@@ -46,7 +46,7 @@ $positions: (
   $index: index($positions, $position);
 
   .blinking-icons:nth-child(#{$index + 1}) {
-    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3));
+    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3), nth($position, 4));
 
     /* Apply animation classes to specific icons */
     &.large-blinking {
@@ -196,8 +196,8 @@ video {
   padding: 0;
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 80px; // 調整按鈕圖片大小
+    height: 80px;
     transition: transform 0.3s;
   }
 
@@ -214,22 +214,22 @@ video {
 
 .card {
   font-family: "Roboto", sans-serif; // 你可以根據需要選擇其他字體
-  font-size: 1.2rem; // 調整文字大小
+  font-size: 1.3rem; // 調整文字大小
   line-height: 1.6; // 調整行高，增強可讀性
 
   .card-title {
-    font-size: 1.8rem; // 調整標題文字大小
+    font-size: 1.9rem; // 調整標題文字大小
     font-weight: bold;
   }
 
   .card-subtitle {
-    font-size: 1.4rem; // 調整副標題文字大小
+    font-size: 1.5rem; // 調整副標題文字大小
     font-weight: 500;
     color: #6c757d; // 更改顏色
   }
 
   .card-text {
-    font-size: 1.2rem; // 調整段落文字大小
+    font-size: 1.3rem; // 調整段落文字大小
     color: #333; // 更改顏色
     text-align: center; // 置中段落
   }
