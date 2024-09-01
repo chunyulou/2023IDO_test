@@ -1,6 +1,6 @@
 /* Existing styles and mixins */
 /* Define blinking icon mixin */
-@mixin blinking-icon($top, $left, $content: "", $imgSize: 2.5vw) {
+@mixin blinking-icon($top, $left, $content: "", $imgSize: 1.5vw) {
   position: absolute;
   top: $top;
   left: $left;
@@ -10,7 +10,7 @@
     cursor: pointer;
 
     @media screen and (max-width: 480px) {
-      width: 5vw;
+      width: 2.5vw;
       /* Adjusted size for smaller mobile screens */
     }
   }
@@ -26,7 +26,7 @@
     content: $content;
 
     @media screen and (max-width: 480px) {
-      font-size: 4vw;
+      font-size: 1vw;
       /* Adjusted size for smaller mobile screens */
     }
   }
@@ -34,11 +34,11 @@
 
 /* Define positions, content data, and image sizes */
 $positions: (
-  (300px, 100px, "點我", 3vw),
-  (280px, 200px, "點我", 3.5vw),
-  (251px, 630px, "點我", 3vw),
-  (269px, 629px, "點我", 3.5vw),
-  (240px, 450px, "點我", 3vw)
+  (300px, 100px, "點我", 2vw),
+  (280px, 200px, "點我", 1.5vw),
+  (251px, 630px, "點我", 2vw),
+  (269px, 629px, "點我", 1.5vw),
+  (240px, 450px, "點我", 2vw)
 );
 
 /* Generate elements and add them to the container */
@@ -73,7 +73,7 @@ $positions: (
     display: block;
     font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
     color: aliceblue;
-    font-size: 3vw; // 使用vw單位調整文字大小，避免小螢幕文字過大
+    font-size: 2.5vw; // 使用vw單位調整文字大小，避免小螢幕文字過大
     line-height: 1px;
     font-weight: 800;
     text-align: center;
@@ -106,7 +106,7 @@ $positions: (
 @media screen and (max-width: 480px) {
   .blinking-icons {
     img {
-      width: 6vw;
+      width: 4vw;
       /* Adjust size for smaller mobile screens */
     }
   }

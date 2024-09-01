@@ -10,12 +10,12 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(2) img {
-  width: 3vw;
+  width: 2vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 5vw;
+    width: 2.5vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -31,7 +31,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
-    font-size: 4vw;
+    font-size: 1vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -49,12 +49,12 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(3) img {
-  width: 3.5vw;
+  width: 1.5vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 5vw;
+    width: 2.5vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -70,7 +70,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
-    font-size: 4vw;
+    font-size: 1vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -88,12 +88,12 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(4) img {
-  width: 3vw;
+  width: 2vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 5vw;
+    width: 2.5vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -109,7 +109,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
-    font-size: 4vw;
+    font-size: 1vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -127,12 +127,12 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(5) img {
-  width: 3.5vw;
+  width: 1.5vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 5vw;
+    width: 2.5vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -148,7 +148,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
-    font-size: 4vw;
+    font-size: 1vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -166,12 +166,12 @@
   /* Apply animation classes to specific icons */
 }
 .blinking-icons:nth-child(6) img {
-  width: 3vw;
+  width: 2vw;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(6) img {
-    width: 5vw;
+    width: 2.5vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -187,7 +187,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(6)::after {
-    font-size: 4vw;
+    font-size: 1vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -211,7 +211,7 @@
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 3vw;
+  font-size: 2.5vw;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -236,7 +236,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 6vw;
+    width: 4vw;
     /* Adjust size for smaller mobile screens */
   }
 }
