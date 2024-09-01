@@ -31,7 +31,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
-    font-size: 1vw;
+    font-size: 2vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -70,7 +70,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
-    font-size: 1vw;
+    font-size: 2vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -109,7 +109,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
-    font-size: 1vw;
+    font-size: 2vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -148,7 +148,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
-    font-size: 1vw;
+    font-size: 2vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -187,7 +187,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(6)::after {
-    font-size: 1vw;
+    font-size: 2vw;
     /* Adjusted size for smaller mobile screens */
   }
 }
@@ -236,7 +236,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 4vw;
+    width: 3vw;
     /* Adjust size for smaller mobile screens */
   }
 }

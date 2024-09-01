@@ -26,7 +26,7 @@
     content: $content;
 
     @media screen and (max-width: 480px) {
-      font-size: 1vw;
+      font-size: 2vw;
       /* Adjusted size for smaller mobile screens */
     }
   }
@@ -106,7 +106,7 @@ $positions: (
 @media screen and (max-width: 480px) {
   .blinking-icons {
     img {
-      width: 4vw;
+      width: 3vw;
       /* Adjust size for smaller mobile screens */
     }
   }
