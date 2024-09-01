@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
             imgElement.addEventListener('click', function () {
                 const modalInstance = new bootstrap.Modal(modal);
                 modalInstance.show();
-                modal.classList.add('show');
             });
 
             modal.addEventListener('shown.bs.modal', function () {
@@ -103,11 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.addEventListener('hidden.bs.modal', function () {
                 videoInModal.pause();
                 videoInModal.currentTime = 0; // Optional: Reset video to the beginning
-                // 用 Bootstrap 方法隱藏 modal
-                const modalInstance = bootstrap.Modal.getInstance(modal);
-                if (modalInstance) {
-                    modalInstance.hide();
-                }
             });
         }
 
