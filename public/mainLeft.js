@@ -96,14 +96,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 modal.classList.add('show');
             });
 
-            // modal.addEventListener('shown.bs.modal', function () {
-            //     videoInModal.play();
-            // });
+            modal.addEventListener('shown.bs.modal', function () {
+                videoInModal.play();
+            });
 
-            // modal.addEventListener('hidden.bs.modal', function () {
-            //     videoInModal.pause();
-            //     videoInModal.currentTime = 0; // Optional: Reset video to the beginning
-            // });
+            modal.addEventListener('hidden.bs.modal', function () {
+                videoInModal.pause();
+                videoInModal.currentTime = 0; // Optional: Reset video to the beginning
+                // 手動移除 show 屬性
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+            });
         }
 
         modalContent.append(modalHeader, modalBody);
