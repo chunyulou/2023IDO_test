@@ -1,29 +1,65 @@
 @charset "UTF-8";
-/* Existing styles and mixins */
-/* Define blinking icon mixin */
-/* Define positions, content data, and image sizes */
-/* Generate elements and add them to the container */
-.blinking-icons:nth-child(2) {
+/* 定義變數 */
+/* 定義閃爍圖標的 mixin */
+/* 定義位置和內容數據 */
+/* 生成閃爍圖標元素 */
+.blinking-icons:nth-child(1) {
   position: absolute;
   top: 300px;
   left: 100px;
-  /* Apply animation classes to specific icons */
+  /* 應用動畫類 */
+}
+.blinking-icons:nth-child(1) img {
+  width: 2rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .blinking-icons:nth-child(1) img {
+    width: 1.5rem;
+  }
+}
+.blinking-icons:nth-child(1)::after {
+  display: block;
+  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+  color: aliceblue;
+  font-size: 1rem;
+  line-height: 1px;
+  font-weight: 800;
+  text-align: center;
+  content: "點我";
+}
+@media screen and (max-width: 480px) {
+  .blinking-icons:nth-child(1)::after {
+    font-size: 1.2rem;
+  }
+}
+.blinking-icons:nth-child(1).large-blinking {
+  animation: blink-large 5s infinite;
+}
+.blinking-icons:nth-child(1).small-blinking {
+  animation: blink-small 2s infinite;
+}
+
+.blinking-icons:nth-child(2) {
+  position: absolute;
+  top: 280px;
+  left: 200px;
+  /* 應用動畫類 */
 }
 .blinking-icons:nth-child(2) img {
-  width: 2vw;
+  width: 1.5rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 2.5vw;
-    /* Adjusted size for smaller mobile screens */
+    width: 1.5rem;
   }
 }
 .blinking-icons:nth-child(2)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 2vw;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -31,8 +67,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
-    font-size: 2vw;
-    /* Adjusted size for smaller mobile screens */
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(2).large-blinking {
@@ -44,25 +79,24 @@
 
 .blinking-icons:nth-child(3) {
   position: absolute;
-  top: 280px;
-  left: 200px;
-  /* Apply animation classes to specific icons */
+  top: 251px;
+  left: 630px;
+  /* 應用動畫類 */
 }
 .blinking-icons:nth-child(3) img {
-  width: 1.5vw;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 2.5vw;
-    /* Adjusted size for smaller mobile screens */
+    width: 1.5rem;
   }
 }
 .blinking-icons:nth-child(3)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 2vw;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -70,8 +104,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
-    font-size: 2vw;
-    /* Adjusted size for smaller mobile screens */
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(3).large-blinking {
@@ -83,25 +116,24 @@
 
 .blinking-icons:nth-child(4) {
   position: absolute;
-  top: 251px;
-  left: 630px;
-  /* Apply animation classes to specific icons */
+  top: 269px;
+  left: 629px;
+  /* 應用動畫類 */
 }
 .blinking-icons:nth-child(4) img {
-  width: 2vw;
+  width: 1.5rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 2.5vw;
-    /* Adjusted size for smaller mobile screens */
+    width: 1.5rem;
   }
 }
 .blinking-icons:nth-child(4)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 2vw;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -109,8 +141,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
-    font-size: 2vw;
-    /* Adjusted size for smaller mobile screens */
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(4).large-blinking {
@@ -122,25 +153,24 @@
 
 .blinking-icons:nth-child(5) {
   position: absolute;
-  top: 269px;
-  left: 629px;
-  /* Apply animation classes to specific icons */
+  top: 240px;
+  left: 450px;
+  /* 應用動畫類 */
 }
 .blinking-icons:nth-child(5) img {
-  width: 1.5vw;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 2.5vw;
-    /* Adjusted size for smaller mobile screens */
+    width: 1.5rem;
   }
 }
 .blinking-icons:nth-child(5)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 2vw;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 800;
   text-align: center;
@@ -148,8 +178,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
-    font-size: 2vw;
-    /* Adjusted size for smaller mobile screens */
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(5).large-blinking {
@@ -159,65 +188,16 @@
   animation: blink-small 2s infinite;
 }
 
-.blinking-icons:nth-child(6) {
-  position: absolute;
-  top: 240px;
-  left: 450px;
-  /* Apply animation classes to specific icons */
-}
-.blinking-icons:nth-child(6) img {
-  width: 2vw;
-  cursor: pointer;
-}
-@media screen and (max-width: 480px) {
-  .blinking-icons:nth-child(6) img {
-    width: 2.5vw;
-    /* Adjusted size for smaller mobile screens */
-  }
-}
-.blinking-icons:nth-child(6)::after {
-  display: block;
-  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
-  color: aliceblue;
-  font-size: 2vw;
-  line-height: 1px;
-  font-weight: 800;
-  text-align: center;
-  content: "點我";
-}
-@media screen and (max-width: 480px) {
-  .blinking-icons:nth-child(6)::after {
-    font-size: 2vw;
-    /* Adjusted size for smaller mobile screens */
-  }
-}
-.blinking-icons:nth-child(6).large-blinking {
-  animation: blink-large 5s infinite;
-}
-.blinking-icons:nth-child(6).small-blinking {
-  animation: blink-small 2s infinite;
-}
-
-/* Generic styling for blinking icons */
+/* 通用閃爍圖標樣式 */
 .blinking-icons {
   position: absolute;
   z-index: 3;
 }
-.blinking-icons img {
-  width: 3vw;
-  cursor: pointer;
-}
 .blinking-icons::after {
-  display: block;
-  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
-  color: aliceblue;
-  font-size: 2.5vw;
-  line-height: 1px;
-  font-weight: 800;
-  text-align: center;
+  font-size: 1.2rem;
 }
 
-/* Animation keyframes */
+/* 動畫關鍵幀 */
 @keyframes blink-large {
   0%, 100% {
     transform: scale(1);
@@ -234,28 +214,29 @@
     transform: scale(1.1);
   }
 }
+/* 響應式設計 */
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 3vw;
-    /* Adjust size for smaller mobile screens */
+    width: 1.5rem;
+  }
+  .blinking-icons::after {
+    font-size: 1.2rem;
   }
 }
-/* Modal styles */
+/* 模態框樣式 */
 .modal {
-  display: none; /* 確保默認狀態下是隱藏的 */
-  visibility: hidden; /* 默認不可見 */
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
-  position: fixed; /* 固定在視窗 */
-  top: 50; /* 調整至所需位置 */
+  display: none;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.1); /* 添加半透明背景 */
+  background-color: rgba(0, 0, 0, 0.1);
 }
-
-/* 當模態框需要顯示時 */
 .modal.show {
   display: flex;
   visibility: visible;
@@ -267,7 +248,6 @@
   justify-content: center;
   position: relative;
   min-height: 100vh;
-  /* 保證 `modal-dialog` 在視窗中垂直居中 */
 }
 
 .modal-content {
@@ -278,18 +258,14 @@
   height: auto;
 }
 
-#modal-image {
+#modal-image,
+video {
   max-width: 100%;
   max-height: 100%;
   margin: 0 auto;
 }
 
-video {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* 輪播圖相關樣式 */
+/* 輪播圖樣式 */
 .carousel-inner .carousel-item {
   position: relative;
 }
@@ -333,6 +309,7 @@ video {
   font-size: 2rem;
 }
 
+/* 卡片樣式 */
 .card {
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;

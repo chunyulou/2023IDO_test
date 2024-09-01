@@ -1,6 +1,12 @@
-/* Existing styles and mixins */
-/* Define blinking icon mixin */
-@mixin blinking-icon($top, $left, $content: "", $imgSize: 2vw) {
+/* 定義變數 */
+$primary-font: "Roboto", sans-serif;
+$secondary-font: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+$aliceblue-color: aliceblue;
+$card-text-color: #333;
+$card-subtitle-color: #6c757d;
+
+/* 定義閃爍圖標的 mixin */
+@mixin blinking-icon($top, $left, $content: "", $imgSize: 2rem) {
   position: absolute;
   top: $top;
   left: $left;
@@ -10,45 +16,43 @@
     cursor: pointer;
 
     @media screen and (max-width: 480px) {
-      width: 2.5vw;
-      /* Adjusted size for smaller mobile screens */
+      width: 1.5rem;
     }
   }
 
   &::after {
     display: block;
-    font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
-    color: aliceblue;
-    font-size: 2vw;
+    font-family: $secondary-font;
+    color: $aliceblue-color;
+    font-size: 1rem;
     line-height: 1px;
     font-weight: 800;
     text-align: center;
     content: $content;
 
     @media screen and (max-width: 480px) {
-      font-size: 2vw;
-      /* Adjusted size for smaller mobile screens */
+      font-size: 1.2rem;
     }
   }
 }
 
-/* Define positions, content data, and image sizes */
+/* 定義位置和內容數據 */
 $positions: (
-  (300px, 100px, "點我", 2vw),
-  (280px, 200px, "點我", 1.5vw),
-  (251px, 630px, "點我", 2vw),
-  (269px, 629px, "點我", 1.5vw),
-  (240px, 450px, "點我", 2vw)
+  (300px, 100px, "點我", 2rem),
+  (280px, 200px, "點我", 1.5rem),
+  (251px, 630px, "點我", 2rem),
+  (269px, 629px, "點我", 1.5rem),
+  (240px, 450px, "點我", 2rem)
 );
 
-/* Generate elements and add them to the container */
+/* 生成閃爍圖標元素 */
 @each $position in $positions {
   $index: index($positions, $position);
 
-  .blinking-icons:nth-child(#{$index + 1}) {
+  .blinking-icons:nth-child(#{$index}) {
     @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3), nth($position, 4));
 
-    /* Apply animation classes to specific icons */
+    /* 應用動畫類 */
     &.large-blinking {
       animation: blink-large 5s infinite;
     }
@@ -59,34 +63,22 @@ $positions: (
   }
 }
 
-/* Generic styling for blinking icons */
+/* 通用閃爍圖標樣式 */
 .blinking-icons {
   position: absolute;
   z-index: 3;
 
-  img {
-    width: 3vw;
-    cursor: pointer;
-  }
-
   &::after {
-    display: block;
-    font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
-    color: aliceblue;
-    font-size: 2.5vw; // 使用vw單位調整文字大小，避免小螢幕文字過大
-    line-height: 1px;
-    font-weight: 800;
-    text-align: center;
+    font-size: 1.2rem;
   }
 }
 
-/* Animation keyframes */
+/* 動畫關鍵幀 */
 @keyframes blink-large {
   0%,
   100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.3);
   }
@@ -97,40 +89,41 @@ $positions: (
   100% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
 }
 
+/* 響應式設計 */
 @media screen and (max-width: 480px) {
   .blinking-icons {
     img {
-      width: 3vw;
-      /* Adjust size for smaller mobile screens */
+      width: 1.5rem;
+    }
+    &::after {
+      font-size: 1.2rem;
     }
   }
 }
 
-/* Modal styles */
+/* 模態框樣式 */
 .modal {
-  display: none; /* 確保默認狀態下是隱藏的 */
-  visibility: hidden; /* 默認不可見 */
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
-  position: fixed; /* 固定在視窗 */
-  top: 50; /* 調整至所需位置 */
+  display: none;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.1); /* 添加半透明背景 */
-}
+  background-color: rgba(0, 0, 0, 0.1);
 
-/* 當模態框需要顯示時 */
-.modal.show {
-  display: flex;
-  visibility: visible;
+  &.show {
+    display: flex;
+    visibility: visible;
+  }
 }
 
 .modal-dialog {
@@ -139,7 +132,6 @@ $positions: (
   justify-content: center;
   position: relative;
   min-height: 100vh;
-  /* 保證 `modal-dialog` 在視窗中垂直居中 */
 }
 
 .modal-content {
@@ -150,18 +142,14 @@ $positions: (
   height: auto;
 }
 
-#modal-image {
+#modal-image,
+video {
   max-width: 100%;
   max-height: 100%;
   margin: 0 auto;
 }
 
-video {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* 輪播圖相關樣式 */
+/* 輪播圖樣式 */
 .carousel-inner {
   .carousel-item {
     position: relative;
@@ -196,7 +184,7 @@ video {
   padding: 0;
 
   img {
-    width: 80px; // 調整按鈕圖片大小
+    width: 80px;
     height: 80px;
     transition: transform 0.3s;
   }
@@ -212,25 +200,26 @@ video {
   font-size: 2rem;
 }
 
+/* 卡片樣式 */
 .card {
-  font-family: "Roboto", sans-serif; // 你可以根據需要選擇其他字體
-  font-size: 1.3rem; // 調整文字大小
-  line-height: 1.6; // 調整行高，增強可讀性
+  font-family: $primary-font;
+  font-size: 1.3rem;
+  line-height: 1.6;
 
   .card-title {
-    font-size: 1.9rem; // 調整標題文字大小
+    font-size: 1.9rem;
     font-weight: bold;
   }
 
   .card-subtitle {
-    font-size: 1.5rem; // 調整副標題文字大小
+    font-size: 1.5rem;
     font-weight: 500;
-    color: #6c757d; // 更改顏色
+    color: $card-subtitle-color;
   }
 
   .card-text {
-    font-size: 1.3rem; // 調整段落文字大小
-    color: #333; // 更改顏色
-    text-align: center; // 置中段落
+    font-size: 1.3rem;
+    color: $card-text-color;
+    text-align: center;
   }
 }
