@@ -210,12 +210,12 @@
   }
 }
 /* 響應式設計 */
-@media screen and (max-width: 480px) {
+@media screen and (max-widsth: 480px) {
   .blinking-icons img {
-    width: 1.5rem;
+    width: 2rem;
   }
   .blinking-icons::after {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 /* 模態框樣式 */

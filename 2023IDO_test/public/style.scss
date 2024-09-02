@@ -101,11 +101,11 @@ $positions: (
 @media screen and (max-widsth: 480px) {
   .blinking-icons {
     img {
-      width: 1.5rem;
+      width: 2rem;
     }
 
     &::after {
-      font-size: 2rem;
+      font-size: 1rem;
     }
   }
 }
