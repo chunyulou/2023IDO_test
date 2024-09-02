@@ -15,21 +15,21 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1) img {
-    width: 1.2rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(1)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1px;
   font-weight: 1000;
   content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1)::after {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(1).large-blinking {
@@ -51,21 +51,21 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 1.2rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(2)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1px;
   font-weight: 1000;
   content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(2).large-blinking {
@@ -87,21 +87,21 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 1.2rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(3)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1px;
   font-weight: 1000;
   content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(3).large-blinking {
@@ -123,21 +123,21 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 1.2rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(4)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1px;
   font-weight: 1000;
   content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(4).large-blinking {
@@ -159,21 +159,21 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 1.2rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(5)::after {
   display: block;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1px;
   font-weight: 1000;
   content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 .blinking-icons:nth-child(5).large-blinking {
@@ -212,7 +212,7 @@
 /* 響應式設計 */
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 1rem;
+    width: 2rem;
   }
   .blinking-icons::after {
     font-size: 1rem;

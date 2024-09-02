@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
     }
 }));
 
-// 初始化数据库
+// 初始化資料庫
 let db;
 const dbPath = 'likes.db';
 initSqlJs().then(SQL => {
@@ -31,13 +31,13 @@ initSqlJs().then(SQL => {
     }
 });
 
-// 处理 /likes 路由
+// 處理 /likes router，儲存右框愛心計數
 app.get('/likes', (req, res) => {
     try {
         const userId = req.query.userId;
         console.log(`Received /likes request for userId: ${userId}`);
 
-        // 同步執行的部分應改為異步，如果可能的話
+        // 異步執行
         const likesResult = db.exec("SELECT * FROM likes");
         const userLikesResult = db.exec(`SELECT * FROM user_likes WHERE userId = ?`, [userId]);
 
@@ -60,7 +60,7 @@ app.get('/likes', (req, res) => {
 });
 
 
-// 处理 /like 路由
+// 處理 /like router，使用者點擊右框愛心動作
 app.post('/like', (req, res) => {
     const { userId, imageId, liked } = req.body;
     console.log(`Received /like request with data: ${JSON.stringify(req.body)}`);
@@ -85,12 +85,12 @@ app.post('/like', (req, res) => {
     res.json({ likeCount });
 });
 
-// 处理所有其他请求，返回index.html
+// 處理所有其他请求，返回likeindex.html
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'likeindex.html'));
 });
 
-// 启动服务器
+// 啟動server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
