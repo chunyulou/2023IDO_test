@@ -1,9 +1,9 @@
-// 生成随机用户ID
+// 產生user id
 function generateUserId() {
     return 'user_' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-// 获取或创建用户ID
+// 取得user id
 function getUserId() {
     let userId = getCookie('userId');
     if (!userId) {
@@ -13,7 +13,7 @@ function getUserId() {
     return userId;
 }
 
-// 设置 Cookie
+// 設置 Cookie
 function setCookie(name, value, days) {
     let expires = "";
     if (days) {
@@ -24,7 +24,7 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-// 读取 Cookie
+// 取得 Cookie
 function getCookie(name) {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
@@ -36,7 +36,7 @@ function getCookie(name) {
     return null;
 }
 
-// 删去 Cookie
+// 刪除 Cookie
 function eraseCookie(name) {
     document.cookie = name + '=; Max-Age=-99999999;';
 }
