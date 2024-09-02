@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我願意便利貼</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="container ">
+    <section class="IDo-LeftRight row my-5 ">
+        <div class="col-12">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">2023 教師研習營（台北場）我願意便利貼</h2>
+                    <h3 class="card-subtitle mb-3 text-muted text-center">「生命的圓滿－尋覓教師的春天」</h3>
+                    <p class="card-text"> 校園中的紛擾與困境，變化無常的境界是如何影響心情？<br>
+                        如何能夠心得決定化解境界的牽絆與繫縛？<br>
+                        且看如何在八識心田中除草與播種，種瓜得瓜，種豆得豆。<br><br>
+                        以善的因緣來成就善的迴力鏢，教師的春天有待咱們辛勤播種，<br>
+                        企盼攜手收成圓滿的人生。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6 col-12 m-0 p-0  IDo-Left position-relative">
+            <div class="btnImageAll position-absolute" style="width: 100%;height: 100%;">
+            </div>
+            <!-- 圖片或其他內容 -->
+            <img id="contentImage" src="/images/background.png" alt="Main Image" class="main-image w-100 h-100">
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 m-0 p-0  IDo-Right">
+            <!-- 右框內容，例如 carousel -->
+            <div id="carouselRight" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <!-- 動態生成的indicator將插入這裡 -->
+                </div>
+                <div class="carousel-inner">
+                    <!-- 動態生成的圖片項目將插入這裡 -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRight"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselRight"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!--動態生成左框愛心圖案、影片按鈕-->
+    <script src="mainLeft.js"></script>
+
+
+    <!-- 右框圖片按讚功能 -->
+    <script src="mainRight.js"></script>
+
+    <!-- cookie儲存按讚狀態 -->
+    <script src="utils.js"></script>
+
+
+    <!-- Bootstrap 5.3.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
