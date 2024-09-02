@@ -215,7 +215,7 @@
     width: 1.5rem;
   }
   .blinking-icons::after {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 }
 /* 模態框樣式 */
