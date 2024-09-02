@@ -16,7 +16,7 @@ $card-subtitle-color: #6c757d;
     cursor: pointer;
 
     @media screen and (max-width: 480px) {
-      width: 1.5rem;
+      width: 1.2rem;
     }
   }
 
@@ -26,12 +26,11 @@ $card-subtitle-color: #6c757d;
     color: $aliceblue-color;
     font-size: 1rem;
     line-height: 1px;
-    font-weight: 800;
-    text-align: center;
+    font-weight: 1000;
     content: $content;
 
     @media screen and (max-width: 480px) {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
     }
   }
 }
@@ -113,8 +112,6 @@ $positions: (
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 50%;
-  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
