@@ -15,11 +15,15 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1) img {
-    width: 1rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(1)::after {
   display: block;
+  position: absolute;
+  top: 100%; /* 將文字放置於圖標下方 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
   font-size: 0.8rem;
@@ -51,11 +55,15 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 1rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(2)::after {
   display: block;
+  position: absolute;
+  top: 100%; /* 將文字放置於圖標下方 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
   font-size: 0.8rem;
@@ -87,11 +95,15 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 1rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(3)::after {
   display: block;
+  position: absolute;
+  top: 100%; /* 將文字放置於圖標下方 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
   font-size: 0.8rem;
@@ -123,11 +135,15 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 1rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(4)::after {
   display: block;
+  position: absolute;
+  top: 100%; /* 將文字放置於圖標下方 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
   font-size: 0.8rem;
@@ -159,11 +175,15 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 1rem;
+    width: 0.8rem;
   }
 }
 .blinking-icons:nth-child(5)::after {
   display: block;
+  position: absolute;
+  top: 100%; /* 將文字放置於圖標下方 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
   font-size: 0.8rem;
@@ -212,7 +232,7 @@
 /* 響應式設計 */
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 2rem;
+    width: 1.7rem;
   }
   .blinking-icons::after {
     font-size: 1rem;
