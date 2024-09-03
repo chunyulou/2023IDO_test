@@ -16,7 +16,7 @@ $card-subtitle-color: #6c757d;
     cursor: pointer;
 
     @media screen and (max-width: 480px) {
-      width: 0.8rem;
+      width: 1rem;
     }
   }
 
@@ -35,7 +35,7 @@ $card-subtitle-color: #6c757d;
     content: $content;
 
     @media screen and (max-width: 480px) {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
     }
   }
 }

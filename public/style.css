@@ -15,7 +15,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(1)::after {
@@ -34,7 +34,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1)::after {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 .blinking-icons:nth-child(1).large-blinking {
@@ -56,7 +56,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(2)::after {
@@ -75,7 +75,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 .blinking-icons:nth-child(2).large-blinking {
@@ -97,7 +97,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(3)::after {
@@ -116,7 +116,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 .blinking-icons:nth-child(3).large-blinking {
@@ -138,7 +138,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(4)::after {
@@ -157,7 +157,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 .blinking-icons:nth-child(4).large-blinking {
@@ -179,7 +179,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(5)::after {
@@ -198,7 +198,7 @@
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 .blinking-icons:nth-child(5).large-blinking {
