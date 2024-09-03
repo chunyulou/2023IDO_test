@@ -10,12 +10,12 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(1) img {
-  width: 1rem;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(1)::after {
@@ -46,12 +46,12 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(2) img {
-  width: 1rem;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(2)::after {
@@ -82,12 +82,12 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(3) img {
-  width: 1rem;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(3)::after {
@@ -118,12 +118,12 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(4) img {
-  width: 1rem;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(4)::after {
@@ -154,12 +154,12 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(5) img {
-  width: 1rem;
+  width: 2rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
-    width: 0.8rem;
+    width: 1rem;
   }
 }
 .blinking-icons:nth-child(5)::after {
