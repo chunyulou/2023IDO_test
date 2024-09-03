@@ -26,6 +26,7 @@ $card-subtitle-color: #6c757d;
     top: 100%; /* 將文字放置於圖標下方 */
     left: 50%; /* 水平居中 */
     transform: translateX(-50%); /* 將文字向左平移，使其左右居中 */
+    white-space: nowrap;
     font-family: $secondary-font;
     color: $aliceblue-color;
     font-size: 0.8rem;
