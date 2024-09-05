@@ -10,7 +10,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(1) img {
-  width: 2rem;
+  width: "點我";
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -27,10 +27,9 @@
   white-space: nowrap;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
-  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1)::after {
@@ -51,7 +50,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(2) img {
-  width: 2rem;
+  width: "點我";
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -68,10 +67,9 @@
   white-space: nowrap;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
-  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
@@ -92,7 +90,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(3) img {
-  width: 2rem;
+  width: "點我";
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -109,10 +107,9 @@
   white-space: nowrap;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
-  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
@@ -133,7 +130,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(4) img {
-  width: 2rem;
+  width: "點我";
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -150,10 +147,9 @@
   white-space: nowrap;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
-  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
@@ -174,7 +170,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(5) img {
-  width: 2rem;
+  width: "點我";
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -191,10 +187,9 @@
   white-space: nowrap;
   font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
   color: aliceblue;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
-  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {
@@ -237,7 +232,7 @@
 /* 響應式設計 */
 @media screen and (max-width: 480px) {
   .blinking-icons img {
-    width: 1.7rem;
+    width: 1.5rem;
   }
   .blinking-icons::after {
     font-size: 1rem;

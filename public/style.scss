@@ -6,7 +6,7 @@ $card-text-color: #333;
 $card-subtitle-color: #6c757d;
 
 /* 定義閃爍圖標的 mixin */
-@mixin blinking-icon($top, $left, $content: "", $imgSize: 2rem) {
+@mixin blinking-icon($top, $left, $imgSize: 1.8rem) {
   position: absolute;
   top: $top;
   left: $left;
@@ -29,10 +29,9 @@ $card-subtitle-color: #6c757d;
     white-space: nowrap;
     font-family: $secondary-font;
     color: $aliceblue-color;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1px;
     font-weight: 1000;
-    content: $content;
 
     @media screen and (max-width: 480px) {
       font-size: 0.8rem;
@@ -42,11 +41,11 @@ $card-subtitle-color: #6c757d;
 
 /* 定義位置和內容數據 */
 $positions: (
-  (300px, 100px, "點我", 2rem),
-  (280px, 200px, "點我", 2rem),
-  (251px, 630px, "點我", 2rem),
-  (269px, 629px, "點我", 2rem),
-  (240px, 450px, "點我", 2rem)
+  (300px, 100px, "點我", 1.6rem),
+  (280px, 200px, "點我", 1.6rem),
+  (251px, 630px, "點我", 1.6rem),
+  (269px, 629px, "點我", 1.6rem),
+  (240px, 450px, "點我", 1.6rem)
 );
 
 /* 生成閃爍圖標元素 */
@@ -54,7 +53,7 @@ $positions: (
   $index: index($positions, $position);
 
   .blinking-icons:nth-child(#{$index}) {
-    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3), nth($position, 4));
+    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3));
 
     /* 應用動畫類 */
     &.large-blinking {
@@ -104,7 +103,7 @@ $positions: (
 @media screen and (max-width: 480px) {
   .blinking-icons {
     img {
-      width: 1.7rem;
+      width: 1.5rem;
     }
 
     &::after {
