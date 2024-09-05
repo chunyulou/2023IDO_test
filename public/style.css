@@ -10,7 +10,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(1) img {
-  width: "點我";
+  width: 1.6rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -30,6 +30,7 @@
   font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
+  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1)::after {
@@ -50,7 +51,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(2) img {
-  width: "點我";
+  width: 1.6rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -70,6 +71,7 @@
   font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
+  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2)::after {
@@ -90,7 +92,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(3) img {
-  width: "點我";
+  width: 1.6rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -110,6 +112,7 @@
   font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
+  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3)::after {
@@ -130,7 +133,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(4) img {
-  width: "點我";
+  width: 1.6rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -150,6 +153,7 @@
   font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
+  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4)::after {
@@ -170,7 +174,7 @@
   /* 應用動畫類 */
 }
 .blinking-icons:nth-child(5) img {
-  width: "點我";
+  width: 1.6rem;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -190,6 +194,7 @@
   font-size: 1rem;
   line-height: 1px;
   font-weight: 1000;
+  content: "點我";
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5)::after {

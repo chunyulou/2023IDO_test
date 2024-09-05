@@ -6,7 +6,7 @@ $card-text-color: #333;
 $card-subtitle-color: #6c757d;
 
 /* 定義閃爍圖標的 mixin */
-@mixin blinking-icon($top, $left, $imgSize: 1.8rem) {
+@mixin blinking-icon($top, $left, $content: "", $imgSize: 1.8rem) {
   position: absolute;
   top: $top;
   left: $left;
@@ -32,6 +32,7 @@ $card-subtitle-color: #6c757d;
     font-size: 1rem;
     line-height: 1px;
     font-weight: 1000;
+    content: $content;
 
     @media screen and (max-width: 480px) {
       font-size: 0.8rem;
@@ -53,7 +54,7 @@ $positions: (
   $index: index($positions, $position);
 
   .blinking-icons:nth-child(#{$index}) {
-    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3));
+    @include blinking-icon(nth($position, 1), nth($position, 2), nth($position, 3), nth($position, 4));
 
     /* 應用動畫類 */
     &.large-blinking {
