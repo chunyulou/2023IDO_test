@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             new bootstrap.Carousel('#carouselRight', {
-                interval: 2000,
+                interval: 5000,
                 ride: 'carousel'
             });
         })
