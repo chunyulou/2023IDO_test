@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 左框圖片影音圖示
-    const imgSrcHeart = '/images/heart.png';
-    const imgSrcPlay = '/images/play.png';
+    const imgSrcHeart = 'images/heart.png';
+    const imgSrcPlay = 'images/play.png';
 
     // 圖示位置分布
     const positions = [
@@ -78,12 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (pos.type === 'image') {
             const imgInModal = document.createElement('img');
-            imgInModal.src = `/images/${pos.src}`;
+            imgInModal.src = `images/${pos.src}`;
             imgInModal.classList.add('img-fluid');
             modalBody.appendChild(imgInModal);
         } else if (pos.type === 'video') {
             const videoInModal = document.createElement('video');
-            videoInModal.src = `/video/${pos.src}`;
+            videoInModal.src = `video/${pos.src}`;
             videoInModal.controls = true;
             videoInModal.classList.add('video-fluid');
 
@@ -117,5 +117,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
