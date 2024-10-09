@@ -6,26 +6,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 左框圖片影音圖示
-    const imgSrcHeart = 'images/heart.png';
-    const imgSrcPlay = 'images/play.png';
+    const imgSrcHeart = 'images/heart.jpg';
+    const imgSrcPlay = 'images/play.jpg';
 
     // 圖示位置分布
     const positions = [
-        { top: '59%', left: '40%', type: 'image', src: 'Frame 1.png' },
+        { top: '59%', left: '40%', type: 'image', src: 'Frame 1.jpg' },
         { top: '55%', left: '30%', type: 'video', src: 'video1.mp4' },
-        { top: '55%', left: '50%', type: 'image', src: 'Frame 2.png' },
+        { top: '55%', left: '50%', type: 'image', src: 'Frame 2.jpg' },
         { top: '62%', left: '70%', type: 'video', src: 'video2.mp4' },
-        { top: '67%', left: '20%', type: 'image', src: 'Frame 3.png' },
-        { top: '63%', left: '90%', type: 'image', src: 'Frame 4.png' },
-        { top: '80%', left: '69%', type: 'image', src: 'Frame 5.png' },
-        { top: '85%', left: '80%', type: 'image', src: 'Frame 6.png' },
+        { top: '67%', left: '20%', type: 'image', src: 'Frame 3.jpg' },
+        { top: '63%', left: '90%', type: 'image', src: 'Frame 4.jpg' },
+        { top: '80%', left: '69%', type: 'image', src: 'Frame 5.jpg' },
+        { top: '85%', left: '80%', type: 'image', src: 'Frame 6.jpg' },
         { top: '86%', left: '10%', type: 'video', src: 'video3.mp4' },
-        { top: '62%', left: '2%', type: 'image', src: 'Frame 7.png' },
+        { top: '62%', left: '2%', type: 'image', src: 'Frame 7.jpg' },
         { top: '82%', left: '89%', type: 'video', src: 'video4.mp4' },
-        { top: '55%', left: '80%', type: 'image', src: 'Frame 8.png' },
+        { top: '55%', left: '80%', type: 'image', src: 'Frame 8.jpg' },
         { top: '65%', left: '10%', type: 'video', src: 'video5.mp4' },
-        { top: '85%', left: '20%', type: 'image', src: 'Frame 9.png' },
-        { top: '60%', left: '60%', type: 'image', src: 'Frame 10.png' }
+        { top: '85%', left: '20%', type: 'image', src: 'Frame 9.jpg' },
+        { top: '60%', left: '60%', type: 'image', src: 'Frame 10.jpg' }
     ];
 
     // 動態生成圖示和模態框

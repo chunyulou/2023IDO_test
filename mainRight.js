@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (i === 1) imageContainer.classList.add('active');
 
                 const img = document.createElement('img');
-                img.src = `images/image${i}.png`;
+                img.src = `images/image${i}.jpg`;
                 img.className = 'd-block w-100 object-fit-cover';
                 img.alt = `Slide ${i}`;
                 if (i <= 3) img.setAttribute('loading', 'eager');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const liked = userLikes[i] || false;
                 likeOverlay.innerHTML = `
                     <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? 'images/red-heart.png' : 'images/empty-heart.png'}" alt="Like" width="30" height="30">
+                        <img src="${liked ? 'images/red-heart.jpg' : 'images/empty-heart.jpg'}" alt="Like" width="30" height="30">
                     </button>
                     <div class="like-counter">${likeCount}</div>
                 `;
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const liked = likeButton.dataset.liked === 'true'; // 檢查當前是否已經喜歡
                     const newLikeStatus = !liked; // 切換喜歡狀態
                     const newIcon = newLikeStatus
-                        ? 'images/red-heart.png' // 如果現在喜歡，顯示紅心
-                        : 'images/empty-heart.png'; // 如果現在不喜歡，顯示空心
+                        ? 'images/red-heart.jpg' // 如果現在喜歡，顯示紅心
+                        : 'images/empty-heart.jpg'; // 如果現在不喜歡，顯示空心
 
                     fetch('https://two023ido-test.onrender.com/like', {
                         method: 'POST',
