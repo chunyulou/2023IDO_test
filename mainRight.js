@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const liked = userLikes[i] || false;
                 likeOverlay.innerHTML = `
                     <button class="like-button" data-image-id="${i}" data-liked="${liked}">
-                        <img src="${liked ? 'images/red-heart.jpg' : 'images/empty-heart.jpg'}" alt="Like" width="30" height="30">
+                        <img src="${liked ? 'images/red-heart.webp' : 'images/empty-heart.webp'}" alt="Like" width="30" height="30">
                     </button>
                     <div class="like-counter">${likeCount}</div>
                 `;
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const liked = likeButton.dataset.liked === 'true'; // 檢查當前是否已經喜歡
                     const newLikeStatus = !liked; // 切換喜歡狀態
                     const newIcon = newLikeStatus
-                        ? 'images/red-heart.jpg' // 如果現在喜歡，顯示紅心
-                        : 'images/empty-heart.jpg'; // 如果現在不喜歡，顯示空心
+                        ? 'images/red-heart.webp' // 如果現在喜歡，顯示紅心
+                        : 'images/empty-heart.webp'; // 如果現在不喜歡，顯示空心
 
                     fetch('https://two023ido-test.onrender.com/like', {
                         method: 'POST',
