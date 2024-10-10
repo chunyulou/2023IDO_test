@@ -13,7 +13,6 @@ $card-subtitle-color: #6c757d;
 
   img {
     width: $imgSize;
-    height: $imgSize;
     @media screen and (max-width: 480px) {
       width: 1rem;
     }

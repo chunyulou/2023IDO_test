@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 圖示位置分布
     const positions = [
-        { top: '59%', left: '40%', type: 'image', src: 'images/Frame 1.jpg', animationClass: 'small-blinking' },
+        { top: '63%', left: '90%', type: 'image', src: 'images/Frame 1.jpg', animationClass: 'small-blinking' },
         { top: '55%', left: '30%', type: 'video', url: 'https://www.youtube.com/embed/Yi1E9lbmpro', animationClass: 'large-blinking' },
         { top: '55%', left: '50%', type: 'image', src: 'images/Frame 2.jpg', animationClass: 'large-blinking' },
         { top: '62%', left: '70%', type: 'video', url: 'https://www.youtube.com/embed/BhCSijjV62M', animationClass: 'large-blinking' },
-        { top: '70%', left: '20%', type: 'image', src: 'images/Frame 3.jpg', animationClass: 'small-blinking' },
-        { top: '63%', left: '90%', type: 'image', src: 'images/Frame 4.jpg' },
+        { top: '70%', left: '18%', type: 'image', src: 'images/Frame 3.jpg', animationClass: 'small-blinking' },
+        { top: '59%', left: '40%', type: 'image', src: 'images/Frame 4.jpg' },
         { top: '80%', left: '69%', type: 'image', src: 'images/Frame 5.jpg' },
         { top: '85%', left: '80%', type: 'image', src: 'images/Frame 6.jpg' },
         { top: '86%', left: '10%', type: 'video', url: 'https://www.youtube.com/embed/8cVCFMUEBhY' },

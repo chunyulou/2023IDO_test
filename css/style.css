@@ -11,7 +11,6 @@
 }
 .blinking-icons:nth-child(1) img {
   width: 1.9rem;
-  height: 1.9rem;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(1) img {
@@ -52,7 +51,6 @@
 }
 .blinking-icons:nth-child(2) img {
   width: 1.8em;
-  height: 1.8em;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(2) img {
@@ -93,7 +91,6 @@
 }
 .blinking-icons:nth-child(3) img {
   width: 1.6rem;
-  height: 1.6rem;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(3) img {
@@ -134,7 +131,6 @@
 }
 .blinking-icons:nth-child(4) img {
   width: 2rem;
-  height: 2rem;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(4) img {
@@ -175,7 +171,6 @@
 }
 .blinking-icons:nth-child(5) img {
   width: 1.5rem;
-  height: 1.5rem;
 }
 @media screen and (max-width: 480px) {
   .blinking-icons:nth-child(5) img {
