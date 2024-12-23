@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.src = `images/image${i}.jpg`;
                 img.className = 'd-block w-100 object-fit-cover';
                 img.alt = `Slide ${i}`;
+                img.loading = 'lazy'; // 懶加載圖片
                 if (i <= 3) img.setAttribute('loading', 'eager');
 
                 const likeOverlay = document.createElement('div');

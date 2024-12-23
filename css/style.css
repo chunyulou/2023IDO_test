@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.row > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 /* 定義變數 */
 /* 定義閃爍圖標的 mixin */
 /* 定義位置和內容數據 */
