@@ -4,6 +4,12 @@
   padding-left: 0;
 }
 
+/* 設置 body 的 padding 和 margin 為 0 */
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* 定義變數 */
 /* 定義閃爍圖標的 mixin */
 /* 定義位置和內容數據 */
