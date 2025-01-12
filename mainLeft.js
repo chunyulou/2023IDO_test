@@ -33,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const modalDialog = document.createElement('div');
         modalDialog.classList.add('modal-dialog', 'modal-dialog-centered');
-        modalDialog.style.maxWidth = '60%'; // 設置外框寬度
-        modalDialog.style.maxHeight = '60%'; // 設置外框高度
 
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
