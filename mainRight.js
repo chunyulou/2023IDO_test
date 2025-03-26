@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (i === 1) imageContainer.classList.add('active');
 
                 const img = document.createElement('img');
-                img.src = `images/image${i}.jpg`;
+                img.src = `images/image${i}.webp`; // 使用 WebP 格式
                 img.className = 'd-block w-100 object-fit-cover';
                 img.alt = `Slide ${i}`;
                 img.loading = 'lazy'; // 懶加載圖片
